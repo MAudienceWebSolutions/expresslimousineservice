@@ -86,6 +86,7 @@ require_once('lib/maudience-phonenumber.php');
         ) );
     }
     add_action( 'widgets_init', 'maudience_widgets_init', 100 );
+
 /*
 #
 #   REGISTER MENUS
