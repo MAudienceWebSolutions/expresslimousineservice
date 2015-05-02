@@ -16,7 +16,7 @@ require_once('lib/maudience-phonenumber.php');
         wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 
         //
-        wp_enqueue_style( MAUDIENCE_CLIENT_SLUG.'-css', get_stylesheet_directory_uri()."lib/css/style.css" );
+        wp_enqueue_style( MAUDIENCE_CLIENT_SLUG, get_stylesheet_directory_uri()."/lib/css/style.css" );
 
         // wp_enqueue_script(
         //     'custom-js',
