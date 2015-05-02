@@ -28,28 +28,18 @@
 *****************************************************************/
 
     //overwrite twentytwelve theme coloring and positioning with our own
+        html {
+            background-color: @child-footer-color;//same color as footer as footer doesn't stick to bottom naturally
+        }
+
         body {
             background-color: @child-background-color;
             
-            .site { 
-                margin: 0;
-                padding: 0;
-                max-width: none;
-                box-shadow: none;
-            }
+            .site { box-shadow: none; }
 
-            .site-header {
-                background-color: @child-header-color;
-                max-width: 960px;
-                margin: auto;
-            }
+            .site-header { background-color: @child-header-color; }
 
-            footer[role="contentinfo"] {
-                margin: 0;
-                padding: 0;
-                max-width: none;
-                background-color: @child-footer-color;
-            }
+            footer[role="contentinfo"] { background-color: @child-footer-color; }
         }
 
 /* SHELL STYLES
