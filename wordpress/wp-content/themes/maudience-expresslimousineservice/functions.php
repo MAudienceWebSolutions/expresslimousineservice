@@ -57,8 +57,35 @@ require_once('lib/maudience-phonenumber.php');
         //     'before_title' => '<h2 class="rounded">',
         //     'after_title' => '</h2>',
         // ) );
+
+        register_sidebar( array(
+            'name' => 'Footer Widget Left',
+            'id' => 'footer-widget-left',
+            'before_widget' => '<div id="footer-widget-left" class="footer-widget-left">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
+
+        register_sidebar( array(
+            'name' => 'Footer Widget Center',
+            'id' => 'footer-widget-center',
+            'before_widget' => '<div id="footer-widget-center" class="footer-widget-center">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
+
+        register_sidebar( array(
+            'name' => 'Footer Widget Right',
+            'id' => 'footer-widget-right',
+            'before_widget' => '<div id="footer-widget-right" class="footer-widget-right">',
+            'after_widget' => '</div>',
+            'before_title' => '<h2 class="rounded">',
+            'after_title' => '</h2>',
+        ) );
     }
-    add_action( 'widgets_init', 'maudience_widgets_init' );
+    add_action( 'widgets_init', 'maudience_widgets_init', 100 );
 /*
 #
 #   REGISTER MENUS
