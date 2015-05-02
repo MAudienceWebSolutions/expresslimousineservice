@@ -3,6 +3,14 @@
 /*	COLOR	*/
 /*	FONTS	*/
 /* MIXINS */
+.els-button {
+  border: 1px solid white;
+}
+.els-button:hover a,
+.els-button:focus a .els-button:active a {
+  background-color: grey;
+  color: black;
+}
 /* BASE */
 /*  BASE 
 
@@ -70,6 +78,20 @@ body footer[role="contentinfo"] a:active {
 /*  ******************************** MENUS AND NAVIGATION ********************************  */
 .main-navigation ul.nav-menu {
   border: none;
+}
+.main-navigation ul.nav-menu .menu-item:last-of-type {
+  border: 1px solid white;
+}
+.main-navigation ul.nav-menu .menu-item:last-of-type:hover a,
+.main-navigation ul.nav-menu .menu-item:last-of-type:focus a .main-navigation ul.nav-menu .menu-item:last-of-type:active a {
+  background-color: grey;
+  color: black;
+}
+.main-navigation ul.nav-menu .menu-item a {
+  padding: 10px 15px;
+  line-height: 1.25rem;
+  font-size: 1.25rem;
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
 }
 /*  ******************************** SIDEBAR ********************************  */
 /*  ******************************** FOOTER ********************************  */
@@ -184,6 +206,9 @@ footer .widget-area {
     -ms-flex-align: space-between;
     -webkit-align-items: space-between;
     align-items: space-between;
+  }
+  .header-left .header-image {
+    margin-top: 17.5px;
   }
   /*  ******************************** MENUS AND NAVIGATION ********************************  */
   .top-nav {

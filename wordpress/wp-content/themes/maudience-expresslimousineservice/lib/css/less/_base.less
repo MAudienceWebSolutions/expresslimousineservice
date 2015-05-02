@@ -54,7 +54,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            
+
         }
 
 /* SHELL STYLES
@@ -78,6 +78,20 @@
 
         .main-navigation ul.nav-menu {
             border: none;
+
+            .menu-item {
+
+                &:last-of-type {
+                    .els-button;
+                }
+
+                a {
+                    padding: 10px 15px;
+                    line-height: 1.25rem;
+                    font-size: 1.25rem;
+                    font-family: @child-tertiary-font;
+                }
+            }
         }
 
     /*  ******************************** SIDEBAR ********************************  */
