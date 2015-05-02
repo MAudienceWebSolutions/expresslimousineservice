@@ -3,7 +3,7 @@
 //global $maudience_client_slug = '';
 define( 'MAUDIENCE_CLIENT_SLUG', 'expresslimousineservice' );
 require_once('lib/custom-post-types.php');
-require_once('lib/maudience-phonenumber.php');
+require_once('lib/maudience-contactinfo.php');
 
 /*
 #
