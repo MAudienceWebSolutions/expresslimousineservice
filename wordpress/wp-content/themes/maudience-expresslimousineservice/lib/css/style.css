@@ -5,6 +5,13 @@
 /* MIXINS */
 .els-button {
   border: 1px solid white;
+  padding: 10px 25px;
+  line-height: 1.25rem;
+  font-size: 1.25rem;
+  letter-spacing: 1.5px;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
 }
 .els-button:hover a,
 .els-button:focus a .els-button:active a {
@@ -82,11 +89,6 @@ body footer[role="contentinfo"] a:active {
 .main-navigation ul.nav-menu .menu-item:last-of-type {
   border: 1px solid white;
 }
-.main-navigation ul.nav-menu .menu-item:last-of-type:hover a,
-.main-navigation ul.nav-menu .menu-item:last-of-type:focus a .main-navigation ul.nav-menu .menu-item:last-of-type:active a {
-  background-color: grey;
-  color: black;
-}
 .main-navigation ul.nav-menu .menu-item a {
   padding: 10px 25px;
   line-height: 1.25rem;
@@ -101,10 +103,68 @@ body footer[role="contentinfo"] a:active {
 .main-navigation ul.nav-menu .menu-item.current-menu-item a span {
   border-bottom: 2.5px solid grey;
 }
+.menu-social-media-navigation-container {
+  margin: 0 0 20px;
+}
+.menu-social-media-navigation-container .menu {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: space-between;
+  -moz-box-pack: space-between;
+  -ms-flex-pack: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: space-between;
+  -moz-box-align: space-between;
+  -ms-flex-align: space-between;
+  -webkit-align-items: space-between;
+  align-items: space-between;
+}
+.menu-social-media-navigation-container .menu .menu-item {
+  max-width: 50%;
+}
 /*  ******************************** SIDEBAR ********************************  */
 /*  ******************************** FOOTER ********************************  */
+.template-front-page .widget-area {
+  border: none;
+}
 footer .widget-area {
   float: none;
+}
+footer h2 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 1.75px;
+  font-weight: 400;
+}
+footer a {
+  text-decoration: none;
+}
+footer .menu-footer-services-container .menu {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: space-between;
+  -moz-box-pack: space-between;
+  -ms-flex-pack: space-between;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: space-between;
+  -moz-box-align: space-between;
+  -ms-flex-align: space-between;
+  -webkit-align-items: space-between;
+  align-items: space-between;
+}
+footer .menu-footer-services-container .menu > li {
+  max-width: 50%;
+}
+footer .menu-footer-services-container .menu > li > a {
+  display: none;
 }
 /* PLUGIN STYLES
 *****************************************************************/

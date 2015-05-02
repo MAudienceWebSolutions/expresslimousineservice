@@ -82,7 +82,7 @@
             .menu-item {
 
                 &:last-of-type {
-                    .els-button;
+                    border: 1px solid white;
                 }
 
                 a {
@@ -96,17 +96,48 @@
 
                 &.current-menu-item a {
                     font-weight: bold;
-                    
+
                     span { border-bottom: 2.5px solid grey; }
                 }
+            }
+        }
+
+        .menu-social-media-navigation-container {
+            margin: 0 0 20px;
+
+            .menu {
+                .maudience-flexbox(space-between);
+
+                .menu-item { max-width: 50%; }
             }
         }
 
     /*  ******************************** SIDEBAR ********************************  */
     /*  ******************************** FOOTER ********************************  */
 
+        .template-front-page .widget-area { border: none;}
+
         footer {
             .widget-area { float: none; }//overwrite parent theme floating
+
+            h2 {
+                font-size: 1.25rem;
+                text-transform: uppercase;
+                letter-spacing: 1.75px;
+                font-weight: 400;
+            }
+
+            a { text-decoration: none; }
+
+            .menu-footer-services-container .menu {
+                .maudience-flexbox(space-between);
+
+                > li {
+                    max-width: 50%;
+
+                    > a { display: none; }
+                }
+            }
         }
 
 /* PLUGIN STYLES
