@@ -1,7 +1,7 @@
 <?php
 
 //global $maudience_client_slug = '';
-define( 'MAUDIENCE_CLIENT_SLUT', 'enter_client_name_here' );
+define( 'MAUDIENCE_CLIENT_SLUG', 'expresslimousineservice' );
 require_once('lib/custom-post-types.php');
 require_once('lib/maudience-phonenumber.php');
 
@@ -10,40 +10,37 @@ require_once('lib/maudience-phonenumber.php');
 #   REGISTER JS AND CSS
 #
 */
-    // function maudience_scripts() {
-    //     wp_enqueue_script(
-    //         'custom-js',
-    //         get_stylesheet_directory_uri() . '/custom.js',
-    //         array( 'jquery' )
-    //     );
-    //     if (is_front_page()) {
-    //         wp_enqueue_script(
-    //             'jssor',
-    //             get_stylesheet_directory_uri() . '/js/jssor.js',
-    //             array( 'jquery' )
-    //         );
-    //         wp_enqueue_script(
-    //             'jssorslider',
-    //             get_stylesheet_directory_uri() . '/js/jssor.slider.js',
-    //             array( 'jquery' )
-    //         );
-    //     }
-    //     wp_enqueue_script('jquery-ui-accordion');
-    // }
-    // add_action( 'wp_enqueue_scripts', 'maudience_scripts' );
-    // function maudience_enqueue_parent_style() {
-    //     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    // }
-    // add_action( 'wp_enqueue_scripts', 'maudience_enqueue_parent_style' );
-
-/**
- * Enqueue scripts and styles
- */
 
     function maudience_scripts() {
-        wp_enqueue_style( MAUDIENCE_CLIENT_SLUT.'-css', get_stylesheet_directory_uri()."lib/css/style.css" );
+        //enqueue parent styles
+        wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+
+        //
+        wp_enqueue_style( MAUDIENCE_CLIENT_SLUG.'-css', get_stylesheet_directory_uri()."lib/css/style.css" );
+
+        // wp_enqueue_script(
+        //     'custom-js',
+        //     get_stylesheet_directory_uri() . '/custom.js',
+        //     array( 'jquery' )
+        // );
+
+        // if (is_front_page()) {
+        //     wp_enqueue_script(
+        //         'jssor',
+        //         get_stylesheet_directory_uri() . '/js/jssor.js',
+        //         array( 'jquery' )
+        //     );
+        //     wp_enqueue_script(
+        //         'jssorslider',
+        //         get_stylesheet_directory_uri() . '/js/jssor.slider.js',
+        //         array( 'jquery' )
+        //     );
+        // }
+
+        // wp_enqueue_script('jquery-ui-accordion');
     }
-    add_action( 'wp_enqueue_scripts', 'maudience_scripts', 15 );
+    add_action( 'wp_enqueue_scripts', 'maudience_scripts'/*, 15*/ );
+
 
 /*
 #
