@@ -1,0 +1,458 @@
+.ezfc * {
+    box-sizing: border-box;
+    max-width: 1920px;
+    margin-left: 0;
+}
+.ezfc-box {
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+.ezfc-box .ezfc-box {
+    padding: 0 20px 0 0;
+}
+.nomargin {
+    margin: 0;
+}
+.clone {
+    display: none !important;
+}
+.ezfc .ezfc-hidden {
+    display: none;
+}
+.text-right {
+    text-align: right;
+}
+.pull-right {
+    float: right;
+}
+.full-width {
+    width: 100%;
+}
+/**
+	columns
+**/
+
+.ezfc-col-1 {
+    width: 15.66%;
+    margin-right: 1%;
+}
+.ezfc-col-2 {
+    width: 32.32%;
+    margin-right: 1%;
+}
+.ezfc-col-3 {
+    width: 49%;
+    margin-right: 1%;
+}
+.ezfc-col-4 {
+    width: 65.66%;
+    margin-right: 1%;
+}
+.ezfc-col-5 {
+    width: 82.32%;
+    margin-right: 1%;
+}
+.ezfc-col-6 {
+    width: 99%;
+    margin-right: 1%;
+}
+/**
+	typography
+**/
+
+.ezfc .fa {
+    font-size: 1.1em;
+}
+.ezfc-message {
+    display: none;
+    font-size: 1.3em;
+}
+.ezfc-message.ezfc-error {
+    color: #d00;
+}
+.ezfc-changed {
+    font-weight: bold;
+}
+.form-table h3 {
+    margin: 0;
+}
+.form-table th {
+    padding: 1em 0;
+}
+/**
+	inline list
+**/
+
+.ezfc-inline-list ul li {
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.ezfc-inline-list li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+.ezfc-inline-list-autowidth li a {
+    width: auto;
+}
+/**
+	forms list
+**/
+
+.ezfc-forms-list {
+    max-height: 700px;
+    overflow-y: auto;
+}
+@media (max-width: 991px) {
+    .ezfc-forms-list {
+        max-height: 200px;
+    }
+}
+.ezfc .ezfc-form {
+    display: block;
+    margin: 0 0 10px;
+    overflow: hidden;
+}
+/**
+	option bar
+**/
+
+.ezfc-options {
+    display: none;
+}
+.ezfc-options-schedule {
+    display: none;
+}
+.ezfc-options-schedule th {
+    padding: 5px 20px 0 0;
+    text-align: left;
+    vertical-align: top;
+}
+/**
+	form element list
+**/
+
+.ezfc-elements-show {
+    min-width: 350px;
+}
+.ezfc-element {
+    width: 33%;
+    margin-bottom: 0.2em !important;
+}
+.ezfc-form-options li.button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 145px;
+}
+.ezfc-form-elements {
+    list-style: none;
+}
+.ezfc-form-element {
+    display: inline-block;
+    float: left;
+    position: relative;
+}
+.ezfc-form-element, .ezfc-form-submission {
+    background: #eee;
+    border: #D3CDCD 1px solid;
+    box-shadow: #eee 1px 1px 3px;
+}
+.ezfc-form-element-name, .ezfc-form-submission-name {
+    border-bottom: #ccc 1px solid;
+    padding: 10px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.ezfc-form-element-name:hover, .ezfc-form-submission-name:hover {
+    background: #fafafa;
+    cursor: pointer;
+}
+.ezfc-form-element-name {
+    padding-left: 70px;
+}
+.ezfc-form-submission-name .fa-check {
+    color: #42C042;
+}
+.ezfc-form-submission-name .fa-times {
+    color: #F62424;
+}
+
+.ezfc-form-submission-data {
+    padding: 1em;
+}
+.ezfc-form-submission-data table {
+    width: 100%;
+}
+.ezfc-form-submission-data td {
+    padding: 0.5em;
+}
+
+.ezfc-form-element-calculate-target, .ezfc-form-element-calculate-operator, .ezfc-form-files ul, .ezfc-form-files p {
+    padding: 5px;
+}
+.ezfc-form-element-data {
+    background: #f4f4f4;
+    border: #D3CDCD 1px solid;
+    box-shadow: #999 0 0 5px;
+    display: none;
+    padding: 5px 15px;
+    position: absolute;
+    min-width: 630px;
+    max-height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 10;
+}
+.ezfc input, .ezfc select, .ezfc textarea {
+    max-width: 100%;
+}
+.ezfc-form-element-data input[type="text"] {
+    width: 100%;
+}
+.ezfc-form-element-data input.small {
+    width: 100%;
+}
+.ezfc-form-element-data input.ezfc-form-element-option-radio {
+    width: auto;
+    display: inline-block;
+}
+.ezfc-form-element-required-char {
+    color: #f00;
+}
+.ezfc-image-preview {
+    max-width: 100%;
+}
+.ezfc .ezfc-form-element-data .row {
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+.ezfc .ezfc-form-element-data .row:not(:first-of-type) {
+    border-top: #ddd 1px solid;
+}
+.ezfc .ezfc-form-element-data textarea, .ezfc-settings-type-textarea {
+    width: 100%;
+    height: 80px;
+}
+.ezfc-import-dialog textarea, .ezfc-export-dialog textarea {
+    width: 100%;
+    height: 80%;
+    min-height: 300px;
+}
+.ezfc-form-element-calculate-target {
+    width: 100%;
+}
+.ezfc-separator {
+    border-left: #ccc 1px solid;
+    height: 28px;
+    margin: 0 5px;
+    padding: 0;
+}
+/**
+	buttons
+**/
+
+.ezfc .ezfc-form-element-delete, .ezfc .ezfc-form-submission-delete, .ezfc .ezfc-form-file-delete {
+    right: 5px;
+    top: 6px;
+    position: absolute;
+    padding: 0 5px;
+    z-index: 5;
+    color: #E73030;
+}
+.ezfc .ezfc-form-element-duplicate {
+    right: 30px;
+    top: 6px;
+    position: absolute;
+    padding: 0 5px;
+    z-index: 5;
+}
+.ezfc-col-1 .ezfc-form-element-duplicate {
+    display: none;
+}
+.ezfc-form-element-column {
+    left: 5px;
+    top: 6px;
+    position: absolute;
+    padding: 0 5px !important;
+    z-index: 5;
+}
+.ezfc-form-element-column-right {
+    left: 32px;
+}
+/**
+	colorized elements for better overview
+**/
+
+.ezfc-form-element-stepstart, .ezfc-form-element-stepend {
+    background: #222;
+}
+.ezfc-form-element-stepstart .ezfc-form-element-name:hover, .ezfc-form-element-stepend .ezfc-form-element-name:hover {
+    background: #444;
+}
+.ezfc-form-element-stepstart .ezfc-form-element-name, .ezfc-form-element-stepend .ezfc-form-element-name {
+    color: #fff;
+}
+
+/**
+    groups
+**/
+.ezfc-group {
+    min-height: 30px;
+}
+.ezfc-form-element-group {
+    background: #eaeaea;
+    border: #bbb 1px solid;
+    margin: 1em 0;
+    padding: 0.5em;
+    width: 100%;
+}
+
+/**
+	jquery ui
+**/
+
+.ui-state-highlight {
+    background: #fafafa;
+    border: #ccc 2px dashed;
+    float: left;
+    display: inline-block;
+    height: 37px;
+}
+.ui-dialog {
+    z-index: 9999;
+}
+.ezfc .ui-spinner {
+    font-size: 1em;
+    width: 80px;
+}
+.ezfc .ui-spinner input {
+    margin: 0;
+    padding: 0.3em;
+}
+
+/** 
+    pricing table
+**/
+.pricing-table {
+    display: inline-block;
+    width: 300px;
+    margin: 20px 20px 0 0;
+    -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+    vertical-align: top;
+}
+.pricing-table-tiny {
+    border-bottom:10px solid #14937a;
+}
+.pricing-table-pro {
+    border-bottom:10px solid #2980b9;
+}
+.pricing-table strong { font-weight: 700; color: #3d3d3d; }
+
+.pricing-table-header-tiny {
+    padding: 5px 0 5px 0;
+    background: #16a085;
+    border:1px solid #14937a;
+    border-bottom:10px solid #14937a;
+    text-align: center;
+}
+.pricing-table-header-pro {
+    padding: 5px 0 5px 0;
+    background: #2980b9;
+    border:1px solid #2980b9;
+    border-bottom:10px solid #2672A5;
+    text-align: center;
+}
+
+.pricing-table-header-tiny h2, .pricing-table-header-small h2, .pricing-table-header-medium h2, .pricing-table-header-pro h2 {  font-weight: 700; color:#FFF; }
+.pricing-table-header-tiny h3, .pricing-table-header-small h3, .pricing-table-header-medium h3, .pricing-table-header-pro h3 { font-weight: 500; color:#FFF;  }
+
+
+.pricing-table-text {
+    margin: 15px 30px 0 30px;
+    padding: 0 10px 15px 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    line-height: 30px;
+    font-size: 16px;
+    color: #888;
+}
+
+.pricing-table-features {
+    margin: 15px 10px 0 10px;
+    padding: 0 10px 15px 10px;
+    border-bottom: 1px dashed #888;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    color: #888;
+}
+.pricing-table-features-pro {
+    margin: 15px 10px 0 10px;
+    padding: 0 10px 15px 10px;
+    border-bottom: 1px dashed #888;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+    color: #888;
+}
+
+.pricing-table-signup-tiny {
+    margin-top: 25px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.pricing-table-signup-tiny a {
+    display: inline-block;
+    height: 50px;
+    background: #16a085;
+    line-height: 50px;
+    padding: 2px 30px;
+    
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.pricing-table-signup-pro {
+    margin-top: 25px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.pricing-table-signup-pro a {
+    display: inline-block;
+    height: 50px;
+    background: #2980b9;
+    line-height: 50px;
+    padding: 2px 30px;
+    
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.pricing-table-signup-tiny a:hover {
+    text-decoration: none;
+    background: #14937a;
+    color: #fff;
+}
+.pricing-table-signup-pro a:hover {
+    text-decoration: none;
+    background: #2672A5;
+    color: #fff;
+}
+
+.ezfc-premium-info {
+    background: #FFFBDB;
+    padding: 10px;
+    font-weight: bold;
+}

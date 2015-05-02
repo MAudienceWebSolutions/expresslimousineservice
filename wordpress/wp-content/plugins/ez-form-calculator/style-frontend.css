@@ -1,0 +1,258 @@
+.ezfc * {
+    box-sizing: border-box;
+}
+.ezfc .ezfc-box {
+    padding: 10px;
+}
+.ezfc .ezfc-container {
+    display: none;
+}
+.ezfc ul {
+    list-style: none;
+}
+.ezfc .ezfc-container .ezfc-details {
+    display: none;
+}
+.ezfc .ezfc-loading {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.3em;
+}
+.ezfc-submit-icon {
+    background: url(assets/img/loading-icon.gif);
+    background-repeat: no-repeat;
+    display: none;
+    margin-top: 0.5em;
+    width: 30px;
+    height: 30px;
+}
+.ezfc-submit-step {
+    margin-top: 1.5em;
+}
+.ezfc-form {
+    position: relative;
+}
+.ezfc-message {
+    color: #d00;
+    display: none;
+}
+.ezfc-hidden, [data-element="hidden"] {
+    display: none !important;
+}
+.ezfc-step {
+    display: none;
+}
+.ezfc-step-active {
+    display: block;
+}
+.ezfc-fixed-price {
+    background: #fff;
+    margin-top: 1em;
+    padding: 1em;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+.ezfc-fixed-price-left {
+    left: -100px;
+}
+.ezfc-fixed-price-right {
+    right: -100px;
+}
+@media (max-width: 767px) {
+    .ezfc-fixed-price {
+        position: relative;
+        left: 0;
+        margin-top: 0;
+        right: inherit;
+        top: 0 !important
+    }
+}
+.ezfc-icon-description {
+    background: url(assets/img/icon-description.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+}
+/**
+  columns
+**/
+
+.ezfc-column {
+    display: inline-block;
+    vertical-align: top;
+}
+.ezfc-col-1 {
+    width: 15.66%;
+    padding-right: 1%;
+}
+.ezfc-col-2 {
+    width: 32.32%;
+    padding-right: 1%;
+}
+.ezfc-col-3 {
+    width: 48.9%;
+    padding-right: 1%;
+}
+.ezfc-col-4 {
+    width: 65.66%;
+    padding-right: 1%;
+}
+.ezfc-col-5 {
+    width: 82.32%;
+    padding-right: 1%;
+}
+.ezfc-col-6 {
+    width: 99%;
+    padding-right: 1%;
+}
+@media (max-width: 767px) {
+    .ezfc-col-1, .ezfc-col-2, .ezfc-col-3, .ezfc-col-4, .ezfc-col-5, .ezfc-col-6 {
+        width: 99%;
+    }
+}
+/**
+  clearfix
+**/
+
+.ezfc-clear:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.ezfc-clear {
+    display: inline-block;
+}
+html[xmlns] .ezfc-clear {
+    display: block;
+}
+* html .ezfc-clear {
+    height: 1%;
+}
+/**
+  jqueryui
+**/
+
+.ezfc-slider-element {
+    margin: 0.5em 0;
+}
+/**
+ * included from bootstrap
+ */
+
+.sr-only {
+    display: none;
+}
+.ezfc-progress {
+    height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+}
+.ezfc-progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #428bca;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+}
+.ezfc-progress.active .ezfc-progress-bar, .ezfc-progress-bar.active {
+    -webkit-animation: ezfc-progress-bar-stripes 2s linear infinite;
+    -o-animation: ezfc-progress-bar-stripes 2s linear infinite;
+    animation: ezfc-progress-bar-stripes 2s linear infinite;
+}
+.ezfc-progress-bar[aria-valuenow="1"], .ezfc-progress-bar[aria-valuenow="2"] {
+    min-width: 30px;
+}
+.ezfc-progress {
+    background-image: -webkit-linear-gradient(top, #ebebeb 0%, #f5f5f5 100%);
+    background-image: -o-linear-gradient(top, #ebebeb 0%, #f5f5f5 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebebeb), to(#f5f5f5));
+    background-image: linear-gradient(to bottom, #ebebeb 0%, #f5f5f5 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffebebeb', endColorstr='#fff5f5f5', GradientType=0);
+    background-repeat: repeat-x;
+}
+.ezfc-progress-bar {
+    background-image: -webkit-linear-gradient(top, #428bca 0%, #3071a9 100%);
+    background-image: -o-linear-gradient(top, #428bca 0%, #3071a9 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#428bca), to(#3071a9));
+    background-image: linear-gradient(to bottom, #428bca 0%, #3071a9 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff3071a9', GradientType=0);
+    background-repeat: repeat-x;
+}
+.ezfc-progress-bar-success {
+    background-image: -webkit-linear-gradient(top, #5cb85c 0%, #449d44 100%);
+    background-image: -o-linear-gradient(top, #5cb85c 0%, #449d44 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#5cb85c), to(#449d44));
+    background-image: linear-gradient(to bottom, #5cb85c 0%, #449d44 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0);
+    background-repeat: repeat-x;
+}
+.ezfc-progress-bar-info {
+    background-image: -webkit-linear-gradient(top, #5bc0de 0%, #31b0d5 100%);
+    background-image: -o-linear-gradient(top, #5bc0de 0%, #31b0d5 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#5bc0de), to(#31b0d5));
+    background-image: linear-gradient(to bottom, #5bc0de 0%, #31b0d5 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff31b0d5', GradientType=0);
+    background-repeat: repeat-x;
+}
+.ezfc-progress-bar-warning {
+    background-image: -webkit-linear-gradient(top, #f0ad4e 0%, #ec971f 100%);
+    background-image: -o-linear-gradient(top, #f0ad4e 0%, #ec971f 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f0ad4e), to(#ec971f));
+    background-image: linear-gradient(to bottom, #f0ad4e 0%, #ec971f 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fff0ad4e', endColorstr='#ffec971f', GradientType=0);
+    background-repeat: repeat-x;
+}
+.ezfc-progress-bar-danger {
+    background-image: -webkit-linear-gradient(top, #d9534f 0%, #c9302c 100%);
+    background-image: -o-linear-gradient(top, #d9534f 0%, #c9302c 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#d9534f), to(#c9302c));
+    background-image: linear-gradient(to bottom, #d9534f 0%, #c9302c 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffd9534f', endColorstr='#ffc9302c', GradientType=0);
+    background-repeat: repeat-x;
+}
+.ezfc-progress-bar-striped {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+}
+@-webkit-keyframes ezfc-progress-bar-stripes {
+    from {
+        background-position: 40px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+@-o-keyframes ezfc-progress-bar-stripes {
+    from {
+        background-position: 40px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+@keyframes ezfc-progress-bar-stripes {
+    from {
+        background-position: 40px 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
