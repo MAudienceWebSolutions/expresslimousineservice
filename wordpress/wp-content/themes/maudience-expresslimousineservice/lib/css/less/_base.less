@@ -27,13 +27,15 @@
 /* GENERAL STYLES
 *****************************************************************/
 
-    //overwrite twentytwelve theme coloring and positioning with our own
+    //overwrite twentytwelve theme coloring and fonts
+
         html {
             background-color: @child-footer-color;//same color as footer as footer doesn't stick to bottom naturally
         }
 
         body {
             background-color: @child-background-color;
+            font-family: @child-main-font;
             
             .site { box-shadow: none; }
 
@@ -49,6 +51,10 @@
                 a:hover,
                 a:active { color: white; }
             }
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            
         }
 
 /* SHELL STYLES

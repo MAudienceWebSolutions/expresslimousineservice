@@ -1,5 +1,7 @@
 /* VARIABLES */
 /* VARIABLES */
+/*	COLOR	*/
+/*	FONTS	*/
 /* MIXINS */
 /* BASE */
 /*  BASE 
@@ -33,6 +35,7 @@ html {
 }
 body {
   background-color: white;
+  font-family: 'Open Sans', Arial, sans-serif;
 }
 body .site {
   box-shadow: none;
