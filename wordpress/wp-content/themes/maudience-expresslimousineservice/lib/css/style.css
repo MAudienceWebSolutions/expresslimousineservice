@@ -13,10 +13,10 @@
   text-transform: uppercase;
   font-family: 'Open Sans Condensed', Arial, sans-serif;
 }
-.els-button:hover a,
-.els-button:focus a .els-button:active a {
+.els-button:hover,
+.els-button:focus,
+.els-button:active {
   background-color: grey;
-  color: black;
 }
 /* BASE */
 /*  BASE 
@@ -88,6 +88,10 @@ body footer[role="contentinfo"] a:active {
 }
 .main-navigation ul.nav-menu .menu-item:last-of-type {
   border: 1px solid white;
+}
+.main-navigation ul.nav-menu .menu-item:last-of-type:hover a,
+.main-navigation ul.nav-menu .menu-item:last-of-type:focus a .main-navigation ul.nav-menu .menu-item:last-of-type:active a {
+  background-color: grey;
 }
 .main-navigation ul.nav-menu .menu-item a {
   padding: 10px 25px;
