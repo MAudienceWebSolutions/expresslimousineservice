@@ -42,11 +42,32 @@ body .site-header {
 }
 body footer[role="contentinfo"] {
   background-color: black;
+  color: white;
+}
+body footer[role="contentinfo"] a,
+body footer[role="contentinfo"] a:hover,
+body footer[role="contentinfo"] a:active {
+  color: white;
 }
 /* SHELL STYLES
 *****************************************************************/
 /*  ******************************** HEADER ********************************  */
+.site-header {
+  color: white;
+}
+.site-header a,
+.site-header h1 a,
+.site-header h2 a,
+.site-header .main-navigation li a,
+.site-header a:hover,
+.site-header a:active,
+.site-header .main-navigation .current-menu-item > a {
+  color: white;
+}
 /*  ******************************** MENUS AND NAVIGATION ********************************  */
+.main-navigation ul.nav-menu {
+  border: none;
+}
 /*  ******************************** SIDEBAR ********************************  */
 /*  ******************************** FOOTER ********************************  */
 footer .widget-area {

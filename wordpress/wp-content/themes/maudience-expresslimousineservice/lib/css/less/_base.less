@@ -37,16 +37,43 @@
             
             .site { box-shadow: none; }
 
-            .site-header { background-color: @child-header-color; }
+            .site-header { 
+                background-color: @child-header-color; 
+            }
 
-            footer[role="contentinfo"] { background-color: @child-footer-color; }
+            footer[role="contentinfo"] { 
+                background-color: @child-footer-color;
+                color: white;
+
+                a,
+                a:hover,
+                a:active { color: white; }
+            }
         }
 
 /* SHELL STYLES
 *****************************************************************/
 
     /*  ******************************** HEADER ********************************  */
+
+        .site-header {
+            color: white;
+
+            a,
+            h1 a,
+            h2 a,
+            .main-navigation li a,
+            a:hover,
+            a:active,
+            .main-navigation .current-menu-item > a { color: white; }
+        }
+
     /*  ******************************** MENUS AND NAVIGATION ********************************  */
+
+        .main-navigation ul.nav-menu {
+            border: none;
+        }
+
     /*  ******************************** SIDEBAR ********************************  */
     /*  ******************************** FOOTER ********************************  */
 
