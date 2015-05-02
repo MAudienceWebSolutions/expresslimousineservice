@@ -94,14 +94,22 @@ require_once('lib/maudience-contactinfo.php');
 #
 */
     function maudience_menus_init() {
-      register_nav_menus(
-        array(
-          'social-media-navigation' => __( 'Social Media Navigation' )
-        )
-      );
+
+        register_nav_menus(
+            array(
+              'social-media-navigation' => __( 'Social Media Navigation' )
+            )
+        );
     }
     add_action( 'init', 'maudience_menus_init' );
-
+    
+    function my_wp_nav_menu_args( $args = '' ) {
+        $args['theme_location'] = 'primary';
+        $args['link_before'] = '<span>';
+        $args['link_after'] = '</span>';
+        return $args;
+    }
+    add_filter( 'wp_nav_menu_args', 'my_wp_nav_menu_args' );
 /*
 #
 #   WHITE LABEL

@@ -86,10 +86,18 @@
                 }
 
                 a {
-                    padding: 10px 15px;
+                    padding: 10px 25px;
                     line-height: 1.25rem;
                     font-size: 1.25rem;
+                    letter-spacing: 1.5px;
+                    font-weight: lighter;
                     font-family: @child-tertiary-font;
+                }
+
+                &.current-menu-item a {
+                    font-weight: bold;
+                    
+                    span { border-bottom: 2.5px solid grey; }
                 }
             }
         }

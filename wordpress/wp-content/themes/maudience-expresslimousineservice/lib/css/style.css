@@ -88,10 +88,18 @@ body footer[role="contentinfo"] a:active {
   color: black;
 }
 .main-navigation ul.nav-menu .menu-item a {
-  padding: 10px 15px;
+  padding: 10px 25px;
   line-height: 1.25rem;
   font-size: 1.25rem;
+  letter-spacing: 1.5px;
+  font-weight: lighter;
   font-family: 'Open Sans Condensed', Arial, sans-serif;
+}
+.main-navigation ul.nav-menu .menu-item.current-menu-item a {
+  font-weight: bold;
+}
+.main-navigation ul.nav-menu .menu-item.current-menu-item a span {
+  border-bottom: 2.5px solid grey;
 }
 /*  ******************************** SIDEBAR ********************************  */
 /*  ******************************** FOOTER ********************************  */
@@ -214,6 +222,10 @@ footer .widget-area {
   .top-nav {
     width: 100%;
     text-align: right;
+    margin: 20px 0 10px;
+  }
+  .top-nav a {
+    text-decoration: none;
   }
   .top-nav .top-nav-menu {
     display: -webkit-box;
@@ -234,6 +246,10 @@ footer .widget-area {
   }
   .top-nav .top-nav-menu .menu-item {
     margin-left: 25px;
+    font-weight: 100;
+  }
+  .main-navigation li {
+    margin-right: 0;
   }
   /*  ******************************** SIDEBAR ********************************  */
   /*  ******************************** FOOTER ********************************  */
