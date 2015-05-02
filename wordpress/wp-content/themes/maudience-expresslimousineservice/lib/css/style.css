@@ -168,7 +168,7 @@ footer .widget-area {
     padding: 0;
   }
   .inner-header-wrap {
-    max-height: 120px;
+    height: 120px;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
