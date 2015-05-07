@@ -26,7 +26,12 @@ get_header(); ?>
 								<h1 class="entry-title"><?php the_title(); ?></h1>
 							</header>
 							<div class="entry-content"><?php the_content(); ?></div><!-- .entry-content -->
-							<div class="slider-wrap"></div>
+							<div class="slider-wrap">
+								<?php
+								if ( function_exists( 'soliloquy' ) ) { soliloquy( 'front-page-slider', 'slug' ); }
+								?>
+
+							</div>
 						</div>
 
 						<div id="instant_rate_finder-section" class="column-right section-column">
