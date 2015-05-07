@@ -42,6 +42,7 @@
 	    
 	    add_action( 'init', ma_custom_post_type_creator('Vehicles', 'Holds our fleet vehicles', true, 4, array( 'title', 'editor', 'thumbnail' ), true, false, 'fleet'));
 	    add_action( 'init', ma_custom_post_type_creator('Services', 'Holds our data specific to our services', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'services'));
+	    add_action( 'init', ma_custom_post_type_creator('Testimonials', 'Holds our testimonial specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false, 'testimonials'));
 	    
 	    // add_action( 'init', ma_custom_post_type_creator('Staff', 'Holds our staff specific data', true, 5, array( 'title', 'editor', 'thumbnail' ), true, false));
 	    // add_action( 'init', ma_custom_post_type_creator('Car Care Tips', 'Holds our car care tips.', true, 6, array( 'title', 'editor', 'thumbnail', 'excerpt' ), true, false));
@@ -55,7 +56,7 @@
 		    add_meta_box(
 		        'ma_vehicles_capacity',
 		        __( 'Capacity', 'ma_textdomain' ),
-		        'ma_meta_box_callback1',
+		        'ma_meta_box_capacity',
 		        'vehicles',//$screen
 		        'side',
 		        'high'
@@ -64,8 +65,17 @@
 		    add_meta_box(
 		        'ma_vehicles_upselltext',
 		        __( 'Upsell Text', 'ma_textdomain' ),
-		        'ma_meta_box_callback2',
+		        'ma_meta_box_upselltext',
 		        'vehicles',//$screen
+		        'side',
+		        'high'
+		    );
+
+		    add_meta_box(
+		        'ma_testimonials_authormeta',
+		        __( 'Author Meta', 'ma_textdomain' ),
+		        'ma_meta_box_authormeta',
+		        'testimonials',//$screen
 		        'side',
 		        'high'
 		    );
@@ -78,7 +88,7 @@
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 
-		function ma_meta_box_callback1( $post ) {
+		function ma_meta_box_capacity( $post ) {
 
 		    // Add an nonce field so we can check for it later.
 		    wp_nonce_field( 'ma_meta_box', 'ma_meta_box_nonce' );
@@ -90,12 +100,12 @@
 		    $value = get_post_meta( $post->ID, '_ma_meta_value_key1', true );
 
 		    echo '<label for="ma_new_field1">';
-		    _e( 'Description for this field', 'ma_textdomain' );
+		    _e( 'How many people can this vehicle hold?', 'ma_textdomain' );
 		    echo '</label> ';
 		    echo '<input type="text" id="ma_new_field1" name="ma_new_field1" value="' . esc_attr( $value ) . '" size="25" />';
 		}
 
-		function ma_meta_box_callback2( $post ) {
+		function ma_meta_box_upselltext( $post ) {
 
 		    // Add an nonce field so we can check for it later.
 		    wp_nonce_field( 'ma_meta_box', 'ma_meta_box_nonce' );
@@ -107,9 +117,26 @@
 		    $value = get_post_meta( $post->ID, '_ma_meta_value_key2', true );
 
 		    echo '<label for="ma_new_field2">';
-		    _e( 'Description for this field', 'ma_textdomain' );
+		    _e( 'Why is this a great choice?', 'ma_textdomain' );
 		    echo '</label> ';
 		    echo '<input type="text" id="ma_new_field2" name="ma_new_field2" value="' . esc_attr( $value ) . '" size="25" />';
+		}
+
+		function ma_meta_box_authormeta( $post ) {
+
+		    // Add an nonce field so we can check for it later.
+		    wp_nonce_field( 'ma_meta_box', 'ma_meta_box_nonce' );
+
+		    /*
+		     * Use get_post_meta() to retrieve an existing value
+		     * from the database and use the value for the form.
+		     */
+		    $value = get_post_meta( $post->ID, '_ma_meta_value_key3', true );
+
+		    echo '<label for="ma_new_field3">';
+		    _e( 'Add the author meta here (ex. John Doe, North Liberty, Iowa)', 'ma_textdomain' );
+		    echo '</label> ';
+		    echo '<input type="text" id="ma_new_field3" name="ma_new_field3" value="' . esc_attr( $value ) . '" size="25" />';
 		}
 
 	/**
@@ -157,16 +184,18 @@
 		    /* OK, it's safe for us to save the data now. */
 
 		    // Make sure that it is set.
-		    if ( ! isset( $_POST['ma_new_field1'] ) || ! isset( $_POST['ma_new_field2'] ) ) {
-		        return;
-		    }
+		    // if ( ! isset( $_POST['ma_new_field1'] ) || ! isset( $_POST['ma_new_field2'] ) || ! isset( $_POST['ma_new_field3'] ) ) {
+		    //     return;
+		    // }
 
 		    // Sanitize user input.
 		    $my_data1 = sanitize_text_field( $_POST['ma_new_field1'] );
 		    $my_data2 = sanitize_text_field( $_POST['ma_new_field2'] );
+		    $my_data3 = sanitize_text_field( $_POST['ma_new_field3'] );
 
 		    // Update the meta field in the database.
 		    update_post_meta( $post_id, '_ma_meta_value_key1', $my_data1 );
 		    update_post_meta( $post_id, '_ma_meta_value_key2', $my_data2 );
+		    update_post_meta( $post_id, '_ma_meta_value_key3', $my_data3 );
 		}
 		add_action( 'save_post', 'ma_save_meta_box_data' );
