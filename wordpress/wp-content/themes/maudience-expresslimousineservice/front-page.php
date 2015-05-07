@@ -18,32 +18,39 @@ get_header(); ?>
 		<div id="content" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<section id="" class="home-section">
+
+					<section id="top-section" class="home-section">
 
 						<div id="slider-section" class="column-left section-column">
 							<header class="entry-header">
 								<h1 class="entry-title"><?php the_title(); ?></h1>
 							</header>
 							<div class="entry-content"><?php the_content(); ?></div><!-- .entry-content -->
+							<div class="slider-wrap"></div>
 						</div>
 
 						<div id="instant_rate_finder-section" class="column-right section-column">
 						</div>
 					</section>
 
-					<section id="our-services" class="home-section">
+					<section id="middle-section" class="home-section">
 						<div class="services-information-output">
-								<?php maudience_return_custom_posts('services', 3); ?>
-							</div>
+							<?php maudience_return_custom_posts('services', 3); ?>
+						</div>
 					</section>
 
-					<section id="" class="home-section">
+					<section id="bottom-section" class="home-section">
 						<div id="testimonials-section" class="column-left section-column">
+							<div class="testimonials-information-output">
+								<?php maudience_return_custom_posts('testimonials', 3); ?>
+							</div>
 						</div>
 
 						<div id="service_area-section" class="column-right section-column">
+
 						</div>
 					</section>
+
 				</article><!-- #post -->
 			<?php endwhile; // end of the loop. ?>
 		</div><!-- #content -->
