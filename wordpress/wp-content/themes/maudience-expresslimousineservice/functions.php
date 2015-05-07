@@ -345,7 +345,7 @@ require_once('lib/maudience-contactinfo.php');
         $my_query = new WP_Query($args);
         if( $my_query->have_posts() ) :
           while ($my_query->have_posts()) : $my_query->the_post(); ?>
-            <li class='custom-post-type-list-item'>
+            <li class="custom-post-type-list-item <?php echo get_post_type() ?>">
                 <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
                     <?php if ( has_post_thumbnail() ) : ?>
                         <div class="entry-page-image">

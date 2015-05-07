@@ -26,7 +26,13 @@
 
 /* GENERAL STYLES
 *****************************************************************/
+    .custom-post-type-list {
+        .maudience-flexbox(flex-start);
 
+        .custom-post-type-list-item {
+
+        }
+    }
 /* SHELL STYLES
 *****************************************************************/
 
@@ -88,3 +94,35 @@
 
 /* PAGE SPECIFIC STYLES
 *****************************************************************/
+
+    /* FRONT PAGE TEMPATE */
+    
+        .page-template-front-page {
+
+            .home-section {
+                width: 100%;
+                padding: 20px 0;
+                .maudience-flexbox(flex-start);
+            }
+
+            .middle-section {
+                background-color: #E5E5E5;
+            }
+
+            .section-column { 
+                max-width: 50%;
+            }
+
+            .column-left { }
+            .column-right { }
+
+            .testimonials-information-output .custom-post-type-list {
+                display: block;
+
+                .custom-post-type-list-item {
+                    width: 100%;
+                    margin: 20px 0;
+                }
+            }
+
+        }

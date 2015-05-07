@@ -19,7 +19,7 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-					<section id="top-section" class="home-section">
+					<section id="top-section" class="top-section home-section">
 
 						<div id="slider-section" class="column-left section-column">
 							<header class="entry-header">
@@ -38,7 +38,7 @@ get_header(); ?>
 						</div>
 					</section>
 
-					<section id="middle-section" class="home-section">
+					<section id="middle-section" class="middle-section home-section">
 						<div class="services-information-output">
 							<?php if ( is_active_sidebar( 'home-middle' ) ) : ?>
 								<div id="home-middle" class="home-middle widget-area" role="complementary">
@@ -48,7 +48,7 @@ get_header(); ?>
 						</div>
 					</section>
 
-					<section id="bottom-section" class="home-section">
+					<section id="bottom-section" class="bottom-section home-section">
 						<div id="testimonials-section" class="column-left section-column">
 							<div class="testimonials-information-output">
 								<?php if ( is_active_sidebar( 'home-bottom-left' ) ) : ?>

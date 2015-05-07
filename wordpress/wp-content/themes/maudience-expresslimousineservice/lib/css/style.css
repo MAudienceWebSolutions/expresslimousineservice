@@ -255,6 +255,23 @@ footer .menu-footer-services-container .menu > li > a {
 \* ---------------------------------------------- */
   /* GENERAL STYLES
 *****************************************************************/
+  .custom-post-type-list {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: flex-start;
+    -moz-box-pack: flex-start;
+    -ms-flex-pack: flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-box-align: flex-start;
+    -moz-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+  }
   /* SHELL STYLES
 *****************************************************************/
   /*  ******************************** HEADER ********************************  */
@@ -340,6 +357,39 @@ footer .menu-footer-services-container .menu > li > a {
   /*  ******************************** GRAVITYFORMS ********************************  */
   /* PAGE SPECIFIC STYLES
 *****************************************************************/
+  /* FRONT PAGE TEMPATE */
+  .page-template-front-page .home-section {
+    width: 100%;
+    padding: 20px 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: flex-start;
+    -moz-box-pack: flex-start;
+    -ms-flex-pack: flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-box-align: flex-start;
+    -moz-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+  }
+  .page-template-front-page .middle-section {
+    background-color: #E5E5E5;
+  }
+  .page-template-front-page .section-column {
+    max-width: 50%;
+  }
+  .page-template-front-page .testimonials-information-output .custom-post-type-list {
+    display: block;
+  }
+  .page-template-front-page .testimonials-information-output .custom-post-type-list .custom-post-type-list-item {
+    width: 100%;
+    margin: 20px 0;
+  }
 }
 /* LARGE DESKTOP + */
 @media only screen and (min-width: 768px) {
