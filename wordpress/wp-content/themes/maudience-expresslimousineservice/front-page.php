@@ -40,19 +40,31 @@ get_header(); ?>
 
 					<section id="middle-section" class="home-section">
 						<div class="services-information-output">
-							<?php maudience_return_custom_posts('services', 3); ?>
+							<?php if ( is_active_sidebar( 'home-middle' ) ) : ?>
+								<div id="home-middle" class="home-middle widget-area" role="complementary">
+									<?php dynamic_sidebar( 'home-middle' ); ?>
+								</div><!-- #footer-widget-left -->
+							<?php endif; ?>
 						</div>
 					</section>
 
 					<section id="bottom-section" class="home-section">
 						<div id="testimonials-section" class="column-left section-column">
 							<div class="testimonials-information-output">
-								<?php maudience_return_custom_posts('testimonials', 3); ?>
+								<?php if ( is_active_sidebar( 'home-bottom-left' ) ) : ?>
+									<div id="home-bottom-left" class="home-bottom-left widget-area" role="complementary">
+										<?php dynamic_sidebar( 'home-bottom-left' ); ?>
+									</div><!-- #footer-widget-left -->
+								<?php endif; ?>
 							</div>
 						</div>
 
 						<div id="service_area-section" class="column-right section-column">
-
+							<?php if ( is_active_sidebar( 'home-bottom-right' ) ) : ?>
+								<div id="home-bottom-right" class="home-bottom-right widget-area" role="complementary">
+									<?php dynamic_sidebar( 'home-bottom-right' ); ?>
+								</div><!-- #footer-widget-left -->
+							<?php endif; ?>
 						</div>
 					</section>
 
