@@ -12,6 +12,7 @@
   font-weight: lighter;
   text-transform: uppercase;
   font-family: 'Open Sans Condensed', Arial, sans-serif;
+  background-color: black;
 }
 .els-button:hover,
 .els-button:focus,
@@ -176,6 +177,23 @@ footer .menu-footer-services-container .menu > li > a {
 /*  ******************************** GRAVITYFORMS ********************************  */
 /* PAGE SPECIFIC STYLES
 *****************************************************************/
+.page-template-front-page .entry-header {
+  margin-bottom: 5px;
+}
+.page-template-front-page .entry-header .entry-title {
+  font-size: 2.571429rem;
+  font-weight: 900;
+  color: black;
+  text-transform: uppercase;
+}
+.page-template-front-page .entry-content p {
+  max-width: 75%;
+}
+.page-template-front-page .entry-content .els-button {
+  text-transform: capitalize;
+  color: white;
+  text-decoration: none;
+}
 /* MOBILE - STARTING BOX/POSITION STYLES */
 @media only screen and (min-width: 200px) {
   /*  0UP RESPONSIVE BASE STYLES
@@ -382,9 +400,6 @@ footer .menu-footer-services-container .menu > li > a {
   }
   .page-template-front-page .section-column {
     width: 50%;
-  }
-  .page-template-front-page .top-section .section-column {
-    background: whitesmoke;
   }
   .page-template-front-page .top-section .column-left {
     width: 70%;
