@@ -194,6 +194,27 @@ footer .menu-footer-services-container .menu > li > a {
   color: white;
   text-decoration: none;
 }
+.page-template-front-page .bottom-section h2 {
+  border: 1px solid white;
+  padding: 10px 25px;
+  line-height: 1.25rem;
+  font-size: 1.25rem;
+  letter-spacing: 1.5px;
+  font-weight: lighter;
+  font-family: 'Open Sans Condensed', Arial, sans-serif;
+  background-color: black;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.page-template-front-page .bottom-section h2:hover,
+.page-template-front-page .bottom-section h2:focus,
+.page-template-front-page .bottom-section h2:active {
+  background-color: grey;
+}
 /* MOBILE - STARTING BOX/POSITION STYLES */
 @media only screen and (min-width: 200px) {
   /*  0UP RESPONSIVE BASE STYLES
