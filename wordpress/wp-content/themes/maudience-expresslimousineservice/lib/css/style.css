@@ -361,22 +361,6 @@ footer .menu-footer-services-container .menu > li > a {
     -ms-flex-align: flex-start;
     -webkit-align-items: flex-start;
     align-items: flex-start;
-    flex-wrap: wrap;
-  }
-  .custom-post-type-list .custom-post-type-list-item.vehicles {
-    list-style: none;
-    margin: 0 auto;
-    position: relative;
-    min-height: 325px;
-    margin-bottom: 25px;
-    width: 50%;
-  }
-  .custom-post-type-list .custom-post-type-list-item.vehicles .entry-page-image {
-    width: 100%;
-    float: none;
-  }
-  .custom-post-type-list .custom-post-type-list-item.vehicles .entry-page-image img {
-    width: 100%;
   }
   /* SHELL STYLES
 *****************************************************************/
@@ -501,6 +485,25 @@ footer .menu-footer-services-container .menu > li > a {
   .page-template-front-page .testimonials-information-output .custom-post-type-list .custom-post-type-list-item {
     width: 100%;
     margin: 20px 0;
+  }
+  /* FLEET ARCHIVE PAGE */
+  .post-type-archive-vehicles .custom-post-type-list {
+    flex-wrap: wrap;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles {
+    list-style: none;
+    margin: 0 auto;
+    position: relative;
+    min-height: 325px;
+    margin-bottom: 25px;
+    width: 50%;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .entry-page-image {
+    width: 100%;
+    float: none;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .entry-page-image img {
+    width: 100%;
   }
 }
 /* LARGE DESKTOP + */
