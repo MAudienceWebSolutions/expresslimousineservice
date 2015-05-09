@@ -381,7 +381,16 @@ footer .menu-footer-services-container .menu > li > a {
     background-color: #E5E5E5;
   }
   .page-template-front-page .section-column {
-    max-width: 50%;
+    width: 50%;
+  }
+  .page-template-front-page .top-section .section-column {
+    background: whitesmoke;
+  }
+  .page-template-front-page .top-section .column-left {
+    width: 70%;
+  }
+  .page-template-front-page .top-section .column-right {
+    width: 30%;
   }
   .page-template-front-page .testimonials-information-output .custom-post-type-list {
     display: block;
