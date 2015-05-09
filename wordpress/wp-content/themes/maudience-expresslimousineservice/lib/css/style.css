@@ -194,6 +194,27 @@ footer .menu-footer-services-container .menu > li > a {
   color: white;
   text-decoration: none;
 }
+.page-template-front-page .middle-section h2 {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 10px 0;
+}
+.page-template-front-page .middle-section .custom-post-type-list-item a {
+  text-decoration: none;
+  color: black;
+}
+.page-template-front-page .middle-section .custom-post-type-list-item .custom-post-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.page-template-front-page .middle-section .custom-post-type-list-item .entry-page-image {
+  float: left;
+  margin: 0 10px;
+}
+.page-template-front-page .middle-section .custom-post-type-list-item img.wp-post-image {
+  box-shadow: none;
+  width: 150px;
+}
 .page-template-front-page .bottom-section h2 {
   border: 1px solid white;
   padding: 10px 25px;
