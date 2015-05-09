@@ -352,7 +352,7 @@ require_once('lib/maudience-contactinfo.php');
                             <?php the_post_thumbnail(); ?>
                         </div><!-- .entry-page-image -->
                     <?php endif; ?>
-                    <div class="post-image-wrap">
+                    <div class="post-content-wrap">
 
                         <?php if ( $title_or_content === 'title' ) : ?>
                             <div class="custom-post-title">
