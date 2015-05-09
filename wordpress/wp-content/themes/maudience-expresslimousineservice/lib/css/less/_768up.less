@@ -28,9 +28,26 @@
 *****************************************************************/
     .custom-post-type-list {
         .maudience-flexbox(flex-start);
+        flex-wrap: wrap;
 
         .custom-post-type-list-item {
 
+            &.vehicles {
+                // max-width: 200px;
+                list-style: none;
+                margin: 0 auto;
+                position: relative;
+                min-height: 325px;
+                margin-bottom: 25px;
+                width: 50%;
+
+                .entry-page-image {
+                    width: 100%;
+                    float: none;
+
+                    img { width: 100%; }
+                }
+            }
         }
     }
 /* SHELL STYLES
