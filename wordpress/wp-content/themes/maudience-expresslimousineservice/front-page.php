@@ -30,11 +30,20 @@ get_header(); ?>
 								<?php
 								if ( function_exists( 'soliloquy' ) ) { soliloquy( 'front-page-slider', 'slug' ); }
 								?>
-
+								<?php if ( is_active_sidebar( 'home-top-left' ) ) : ?>
+									<div id="home-top-left" class="home-top-left widget-area" role="complementary">
+										<?php dynamic_sidebar( 'home-top-left' ); ?>
+									</div><!-- #home-top-right -->
+								<?php endif; ?>
 							</div>
 						</div>
 
 						<div id="instant_rate_finder-section" class="column-right section-column">
+							<?php if ( is_active_sidebar( 'home-top-right' ) ) : ?>
+								<div id="home-top-right" class="home-top-right widget-area" role="complementary">
+									<?php dynamic_sidebar( 'home-top-right' ); ?>
+								</div><!-- #home-top-right -->
+							<?php endif; ?>
 						</div>
 					</section>
 
