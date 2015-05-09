@@ -275,6 +275,15 @@ footer .menu-footer-services-container .menu > li > a {
     max-width: 960px;
     margin: auto;
   }
+  body.page-template-front-page .inner-main-wrap {
+    max-width: none;
+  }
+  body.page-template-front-page .inner-main-wrap article > .top-section,
+  body.page-template-front-page .inner-main-wrap article > .bottom-section,
+  body.page-template-front-page .inner-main-wrap article > .middle-section .services-information-output {
+    max-width: 960px;
+    margin: auto;
+  }
   /* SHELL STYLES
 *****************************************************************/
   /*  ******************************** HEADER ********************************  */
