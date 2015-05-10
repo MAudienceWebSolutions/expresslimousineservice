@@ -341,6 +341,9 @@ footer .menu-footer-services-container .menu > li > a {
     max-width: 960px;
     margin: auto;
   }
+  .custom-post-type-list .custom-post-type-list-item.services {
+    min-height: 150px;
+  }
   /* SHELL STYLES
 *****************************************************************/
   /*  ******************************** HEADER ********************************  */
@@ -366,6 +369,9 @@ footer .menu-footer-services-container .menu > li > a {
   /*  ******************************** GRAVITYFORMS ********************************  */
   /* PAGE SPECIFIC STYLES
 *****************************************************************/
+  .page-template-front-page .bottom-section h2.rounded {
+    width: 100%;
+  }
 }
 /* TABLET + */
 @media only screen and (min-width: 768px) {
@@ -531,6 +537,9 @@ footer .menu-footer-services-container .menu > li > a {
   }
   .page-template-front-page .top-section .column-right {
     width: 30%;
+  }
+  .page-template-front-page .bottom-section h2.rounded {
+    width: auto;
   }
   .page-template-front-page .testimonials-information-output .custom-post-type-list {
     display: block;
