@@ -126,22 +126,26 @@
         }
 
         .menu-social-media-navigation-container {
-            margin: 0 0 20px;
+            margin: 10px 0 20px;
 
             .menu {
-                .maudience-flexbox(space-between);
+                .maudience-flexbox(space-around);
 
                 .menu-item {
                     max-width: 50%;
                     display: inline-block;
-                    height: 50px;
-                    width: 50px;
+                    height: 35px;
+                    width: 35px;
                     vertical-align: top;
                     background-size: 100%;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+
+                    a { color: transparent; }
                 }
 
                 .email  { background-image: url('../images/email-icon-round.png'); }
-                .facebook  { background-image: url('../images/facebook-icon-round.png'); }
+                .facebook  { background-image: url('../images/fb-icon-round.png'); }
             }
         }
 
