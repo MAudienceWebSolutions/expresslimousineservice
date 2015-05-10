@@ -277,8 +277,10 @@ footer .menu-footer-services-container .menu > li > a {
 .page-template-front-page .bottom-section h2:active {
   background-color: grey;
 }
+.page-template-front-page .bottom-section .home-bottom-left {
+  padding-bottom: 50px;
+}
 .page-template-front-page .bottom-section .home-bottom-left .custom-post-type-list-item {
-  border-left: 5px solid black;
   padding: 5px 0 0 20px;
 }
 .page-template-front-page .bottom-section .home-bottom-left .custom-post-type-list-item p {
@@ -547,6 +549,7 @@ footer .menu-footer-services-container .menu > li > a {
   .page-template-front-page .testimonials-information-output .custom-post-type-list .custom-post-type-list-item {
     width: 100%;
     margin: 20px 0;
+    border-left: 5px solid black;
   }
   /* FLEET ARCHIVE PAGE */
   .post-type-archive-vehicles .custom-post-type-list {
