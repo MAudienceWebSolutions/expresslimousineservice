@@ -244,9 +244,6 @@ footer .menu-footer-services-container .menu > li > a {
   padding: 0;
   margin: 0;
 }
-.page-template-front-page .middle-section.home-section {
-  padding-bottom: 40px;
-}
 .page-template-front-page .middle-section h2 {
   text-transform: uppercase;
   text-align: center;
@@ -417,6 +414,9 @@ footer .menu-footer-services-container .menu > li > a {
     -ms-flex-align: flex-start;
     -webkit-align-items: flex-start;
     align-items: flex-start;
+  }
+  .custom-post-type-list .custom-post-type-list-item.services {
+    min-height: none;
   }
   /* SHELL STYLES
 *****************************************************************/
