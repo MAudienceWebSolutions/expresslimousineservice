@@ -348,6 +348,7 @@ footer .menu-footer-services-container .menu > li > a {
   }
   .slider-wrap .widget-area .textwidget li img {
     height: 300px;
+    width: 100%;
   }
   /* SHELL STYLES
 *****************************************************************/
