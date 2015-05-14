@@ -27,9 +27,6 @@ get_header(); ?>
 							</header>
 							<div class="entry-content"><?php the_content(); ?></div><!-- .entry-content -->
 							<div class="slider-wrap">
-								<?php
-								if ( function_exists( 'soliloquy' ) ) { soliloquy( 'front-page-slider', 'slug' ); }
-								?>
 								<?php if ( is_active_sidebar( 'home-top-left' ) ) : ?>
 									<div id="home-top-left" class="home-top-left widget-area" role="complementary">
 										<?php dynamic_sidebar( 'home-top-left' ); ?>
