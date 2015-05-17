@@ -379,13 +379,13 @@ require_once('lib/maudience-contactinfo.php');
 
                         <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key1', true ) ) : ?>
                             <div class="custom-post-upselltext">
-                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key1', true ))." Person"; ?>                            
+                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key1', true )); ?>                            
                             </div><!-- .custom-post-upselltext -->
                         <?php endif; ?>
 
                         <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key3', true ) ) : ?>
                             <div class="custom-post-authormeta">
-                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key3', true ))." Person"; ?>                            
+                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key3', true )); ?>                            
                             </div><!-- .custom-post-upselltext -->
                         <?php endif; ?>
 
