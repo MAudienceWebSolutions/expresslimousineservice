@@ -293,6 +293,9 @@ footer .menu-footer-services-container .menu > li > a {
 .page-template-front-page .bottom-section .home-bottom-left .custom-post-type-list-item .custom-post-authormeta {
   font-weight: bold;
 }
+.post-type-archive-testimonials article .entry-header .wp-post-image {
+  box-shadow: none;
+}
 /* MOBILE - STARTING BOX/POSITION STYLES */
 @media only screen and (min-width: 200px) {
   /*  0UP RESPONSIVE BASE STYLES
