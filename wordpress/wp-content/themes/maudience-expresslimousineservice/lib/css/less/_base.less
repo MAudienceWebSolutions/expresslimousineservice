@@ -70,7 +70,7 @@
 
             img.wp-post-image {
                 box-shadow: none;
-                width: 150px;
+                // width: 150px;
             }
 
             .reserve-now-wrap { display: none; }
@@ -275,120 +275,218 @@
 
 /* PAGE SPECIFIC STYLES
 *****************************************************************/
+    /* HOME PAGE */
 
-    .page-template-front-page {
-        .entry-header {
-            margin-bottom: 5px;
+        .page-template-front-page {
+            .entry-header {
+                margin-bottom: 5px;
 
-            .entry-title {
-                font-size: 2.571429rem;
-                font-weight: 900;
-                color: black;
-                text-transform: uppercase;
-            }
-        }
-
-        .entry-content {
-
-            p { max-width: 75%; }
-
-            .els-button {
-                text-transform: capitalize;
-                color: white;
-                text-decoration: none;
-            }
-        }
-
-        .widget-area {
-            padding: 0;
-            margin: 0;
-        }
-
-        .top-section {
-
-            .home-top-right {
-                color: white;
-                background-color: black;
-
-                h2 {
-                    font-weight: 100;
+                .entry-title {
+                    font-size: 2.571429rem;
+                    font-weight: 900;
+                    color: black;
                     text-transform: uppercase;
                 }
+            }
 
-                > h2 {
+            .entry-content {
+
+                p { max-width: 75%; }
+
+                .els-button {
+                    text-transform: capitalize;
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+
+            .widget-area {
+                padding: 0;
+                margin: 0;
+            }
+
+            .top-section {
+
+                .home-top-right {
+                    color: white;
+                    background-color: black;
+
+                    h2 {
+                        font-weight: 100;
+                        text-transform: uppercase;
+                    }
+
+                    > h2 {
+                        text-align: center;
+                        line-height: 3rem;
+                        font-size: 1.25rem;
+                        border-bottom: 1px solid white;
+                    }
+
+                    li > h2 {
+                    }
+
+                    .gform_wrapper {
+                        padding: 12.5px 17.5px;
+                        margin: 0;
+
+                        .top_label .gfield_label { display: none; }
+
+                        input,
+                        select { border-radius: 0; }
+
+                        .gform_fields .gfield { margin: 15px 0; }
+                    }
+                }
+            }
+
+            .middle-section {
+
+                h2 {
+                    text-transform: uppercase;
                     text-align: center;
-                    line-height: 3rem;
-                    font-size: 1.25rem;
-                    border-bottom: 1px solid white;
+                    margin: 5px 0 30px;
+                    color: black;
+                    font-size: 1.75rem;
+                    font-weight: 900;
                 }
-
-                li > h2 {
-                }
-
-                .gform_wrapper {
-                    padding: 12.5px 17.5px;
-                    margin: 0;
-
-                    .top_label .gfield_label { display: none; }
-
-                    input,
-                    select { border-radius: 0; }
-
-                    .gform_fields .gfield { margin: 15px 0; }
-                }
-            }
-        }
-
-        .middle-section {
-
-            h2 {
-                text-transform: uppercase;
-                text-align: center;
-                margin: 5px 0 30px;
-                color: black;
-                font-size: 1.75rem;
-                font-weight: 900;
-            }
-
-            .custom-post-type-list-item {
-
-                .entry-page-image {
-                    float: left;
-                    margin: 0 10px;
-                }
-            }
-        }
-
-        .bottom-section {
-            h2 { 
-                .els-button;
-                text-transform: uppercase;
-                color: white;
-                text-decoration: none;
-                text-align: center;
-                display: inline-block;
-                margin-bottom: 20px;
-            }
-
-            .home-bottom-left {
-                padding-bottom: 50px;
 
                 .custom-post-type-list-item {
-                    padding: 5px 0 0 20px;
-
-                    p { max-width: 80%; }
 
                     .entry-page-image {
                         float: left;
-                        width: 100%;
+                        margin: 0 10px;
                     }
+                }
+            }
 
-                    .custom-post-authormeta { font-weight: bold; }
+            .bottom-section {
+                h2 { 
+                    .els-button;
+                    text-transform: uppercase;
+                    color: white;
+                    text-decoration: none;
+                    text-align: center;
+                    display: inline-block;
+                    margin-bottom: 20px;
+                }
+
+                .home-bottom-left {
+                    padding-bottom: 50px;
+
+                    .custom-post-type-list-item {
+                        padding: 5px 0 0 20px;
+
+                        p { max-width: 80%; }
+
+                        .entry-page-image {
+                            float: left;
+                            width: 100%;
+                        }
+
+                        .custom-post-authormeta { font-weight: bold; }
+                    }
                 }
             }
         }
-    }
 
-    .post-type-archive-testimonials {
-        article .entry-header .wp-post-image { box-shadow: none; }
-    }
+    /* TESTIMONIALS PAGE */
+
+        .post-type-archive-testimonials {
+            article .entry-header .wp-post-image { box-shadow: none; }
+        }
+
+    /* FLEET ARCHIVE PAGE */
+
+        .post-type-archive-vehicles {
+            .custom-post-type-list {
+                flex-wrap: wrap;
+
+                .custom-post-type-list-item {
+
+                    &.vehicles {
+                        list-style: none;
+                        margin: 20px auto;
+                        position: relative;
+                        margin-bottom: 50px;
+                        width: 95%;
+                        padding-top: 10px;
+
+                        .entry-page-image {
+                            width: 100%;
+                            float: none;
+                            margin-top: 20px;
+                            margin-bottom: 0;
+
+                            img {
+                                width: 100%;
+                                height: auto;
+                                border-radius: 0;
+                            }
+                        }
+
+                        .post-content-wrap {
+
+                            .custom-post-title{
+                                position: absolute;
+                                top: 0;
+                            }
+
+                            .custom-post-capacity {
+                                background-color: @child-color-grey;
+
+                                > span,
+                                &:after,
+                                &:before {
+                                    line-height: 3rem;
+                                    display: inline-block;
+                                }
+
+                                > span {
+                                    width: 3rem;
+                                    background-color: black;
+                                    color: white;
+                                    text-align: center;
+                                    font-size: 2rem;
+                                }
+
+                                &:after,
+                                &:before {
+                                    vertical-align: top;
+                                    font-weight: bold;
+                                }
+
+                                &:after {
+                                    padding: 0 16px;
+                                    color: black;
+                                    content: "Passengers";
+                                }
+
+                                &:before {
+                                    float: right;
+                                    padding: 0 20px;
+                                    background-color: black;
+                                    color: white;
+                                    content: "Reserve Now >";
+                                }
+                            }
+
+                            .custom-post-upselltext { display: none; }
+                        }
+
+                        .reserve-now-wrap {
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+
+                            .els-button {
+                                padding: 8px 15px;
+                                border: none;
+                                color: white;
+                                line-height: 42px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
