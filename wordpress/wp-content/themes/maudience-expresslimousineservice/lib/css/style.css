@@ -244,6 +244,18 @@ footer .menu-footer-services-container .menu > li > a {
   padding: 0;
   margin: 0;
 }
+.page-template-front-page .top-section .home-top-right {
+  color: white;
+  background-color: black;
+}
+.page-template-front-page .top-section .home-top-right h2 {
+  text-align: center;
+  line-height: 3rem;
+  font-size: 1.25rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  border-bottom: 1px solid white;
+}
 .page-template-front-page .middle-section h2 {
   text-transform: uppercase;
   text-align: center;
