@@ -150,7 +150,6 @@
                 .custom-post-type-list-item {
 
                     &.vehicles {
-                        // max-width: 200px;
                         list-style: none;
                         margin: 0 auto;
                         position: relative;
@@ -179,43 +178,44 @@
                             .custom-post-capacity {
                                 background-color: @child-color-grey;
 
+                                > span,
+                                &:after,
+                                &:before {
+                                    line-height: 3rem;
+                                    display: inline-block;
+                                }
+
                                 > span {
+                                    width: 3rem;
                                     background-color: black;
-                                    font-size: 2rem;
                                     color: white;
                                     text-align: center;
-                                    width: 3rem;
-                                    display: inline-block;
-                                    line-height: 3rem;
+                                    font-size: 2rem;
+                                }
+
+                                &:after,
+                                &:before {
+                                    vertical-align: top;
+                                    font-weight: bold;
                                 }
 
                                 &:after {
-                                    content: "Passengers";
-                                    color: black;
-                                    display: inline-block;
-                                    vertical-align: top;
-                                    line-height: 3rem;
                                     padding: 0 16px;
-                                    font-weight: bold;
+                                    color: black;
+                                    content: "Passengers";
                                 }
 
                                 &:before {
-                                    content: "Reserve Now >";
+                                    float: right;
+                                    padding: 0 20px;
                                     background-color: black;
                                     color: white;
-                                    display: inline-block;
-                                    vertical-align: top;
-                                    line-height: 3rem;
-                                    padding: 0 20px;
-                                    font-weight: bold;
-                                    float: right;
+                                    content: "Reserve Now >";
                                 }
                             }
 
                             .custom-post-upselltext { display: none; }
                         }
-
-
 
                         .reserve-now-wrap {
                             position: absolute;
@@ -223,10 +223,10 @@
                             bottom: 0;
 
                             .els-button {
-                                border: none;
-                                line-height: 42px;
                                 padding: 8px 15px;
+                                border: none;
                                 color: white;
+                                line-height: 42px;
                             }
                         }
                     }
