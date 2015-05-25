@@ -597,8 +597,7 @@ footer .menu-footer-services-container .menu > li > a {
     list-style: none;
     margin: 0 auto;
     position: relative;
-    min-height: 325px;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
     width: 49%;
   }
   .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .entry-page-image {
@@ -608,11 +607,58 @@ footer .menu-footer-services-container .menu > li > a {
   }
   .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .entry-page-image img {
     width: 100%;
-    max-height: 165px;
+    height: 165px;
+    border-radius: 0;
   }
   .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-title {
     position: absolute;
     top: 0;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity {
+    background-color: #e5e5e5;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity > span {
+    background-color: black;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    width: 3rem;
+    display: inline-block;
+    line-height: 3rem;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:after {
+    content: "Passengers";
+    color: black;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 3rem;
+    padding: 0 16px;
+    font-weight: bold;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:before {
+    content: "Reserve Now >";
+    background-color: black;
+    color: white;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 3rem;
+    padding: 0 20px;
+    font-weight: bold;
+    float: right;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-upselltext {
+    display: none;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .reserve-now-wrap {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .reserve-now-wrap .els-button {
+    border: none;
+    line-height: 42px;
+    padding: 8px 15px;
+    color: white;
   }
 }
 /* LARGE DESKTOP + */
