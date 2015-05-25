@@ -599,14 +599,20 @@ footer .menu-footer-services-container .menu > li > a {
     position: relative;
     min-height: 325px;
     margin-bottom: 25px;
-    width: 50%;
+    width: 49%;
   }
   .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .entry-page-image {
     width: 100%;
     float: none;
+    margin-top: 20px;
   }
   .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .entry-page-image img {
     width: 100%;
+    max-height: 165px;
+  }
+  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-title {
+    position: absolute;
+    top: 0;
   }
 }
 /* LARGE DESKTOP + */
