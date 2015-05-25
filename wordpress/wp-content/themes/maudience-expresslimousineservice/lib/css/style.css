@@ -80,6 +80,12 @@ body footer[role="contentinfo"] a:active {
   box-shadow: none;
   width: 150px;
 }
+.custom-post-type-list-item .reserve-now-wrap {
+  display: none;
+}
+.post-type-archive-vehicles .reserve-now-wrap {
+  display: block;
+}
 /* SHELL STYLES
 *****************************************************************/
 /*  ******************************** HEADER ********************************  */
