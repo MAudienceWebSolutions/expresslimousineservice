@@ -184,6 +184,24 @@ body footer[role="contentinfo"] a:active {
   background-image: url('../images/phone.png');
 }
 /*  ******************************** SIDEBAR ********************************  */
+#secondary.widget-area .widget-title {
+  background-color: black;
+  color: white;
+  font-weight: 100;
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 3rem;
+  font-size: 1.25rem;
+  border-bottom: 1px solid white;
+  margin-bottom: 0;
+}
+#secondary.widget-area .widget {
+  margin-bottom: 10px;
+}
+#secondary.widget-area .textwidget {
+  background-color: #e5e5e5;
+  padding: 10px;
+}
 /*  ******************************** FOOTER ********************************  */
 .template-front-page .widget-area {
   border: none;
