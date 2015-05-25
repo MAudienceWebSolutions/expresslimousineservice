@@ -408,8 +408,7 @@ footer .menu-footer-services-container .menu > li > a {
   background-color: #e5e5e5;
 }
 .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity > span,
-.post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:after,
-.post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:before {
+.post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:after {
   line-height: 3rem;
   display: inline-block;
 }
@@ -420,22 +419,12 @@ footer .menu-footer-services-container .menu > li > a {
   text-align: center;
   font-size: 2rem;
 }
-.post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:after,
-.post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:before {
-  vertical-align: top;
-  font-weight: bold;
-}
 .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:after {
-  padding: 0 16px;
+  padding: 0 3.5%;
   color: black;
   content: "Passengers";
-}
-.post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:before {
-  float: right;
-  padding: 0 20px;
-  background-color: black;
-  color: white;
-  content: "Reserve Now >";
+  vertical-align: top;
+  font-weight: bold;
 }
 .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-upselltext {
   display: none;
@@ -444,6 +433,7 @@ footer .menu-footer-services-container .menu > li > a {
   position: absolute;
   right: 0;
   bottom: 0;
+  background-color: black;
 }
 .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .reserve-now-wrap .els-button {
   padding: 8px 15px;
@@ -717,76 +707,11 @@ footer .menu-footer-services-container .menu > li > a {
     border-left: 5px solid black;
   }
   /* FLEET ARCHIVE PAGE */
-  .post-type-archive-vehicles .custom-post-type-list {
-    flex-wrap: wrap;
-  }
   .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles {
-    list-style: none;
-    margin: 0 auto;
-    position: relative;
-    margin-bottom: 50px;
     width: 49%;
   }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .entry-page-image {
-    width: 100%;
-    float: none;
-    margin-top: 20px;
-  }
   .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .entry-page-image img {
-    width: 100%;
     height: 165px;
-    border-radius: 0;
-  }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-title {
-    position: absolute;
-    top: 0;
-  }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity {
-    background-color: #e5e5e5;
-  }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity > span,
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:after,
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:before {
-    line-height: 3rem;
-    display: inline-block;
-  }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity > span {
-    width: 3rem;
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-size: 2rem;
-  }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:after,
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:before {
-    vertical-align: top;
-    font-weight: bold;
-  }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:after {
-    padding: 0 16px;
-    color: black;
-    content: "Passengers";
-  }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-capacity:before {
-    float: right;
-    padding: 0 20px;
-    background-color: black;
-    color: white;
-    content: "Reserve Now >";
-  }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .post-content-wrap .custom-post-upselltext {
-    display: none;
-  }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .reserve-now-wrap {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-  .post-type-archive-vehicles .custom-post-type-list .custom-post-type-list-item.vehicles .reserve-now-wrap .els-button {
-    padding: 8px 15px;
-    border: none;
-    color: white;
-    line-height: 42px;
   }
 }
 /* LARGE DESKTOP + */

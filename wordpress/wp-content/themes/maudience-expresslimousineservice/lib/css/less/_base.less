@@ -436,8 +436,7 @@
                                 background-color: @child-color-grey;
 
                                 > span,
-                                &:after,
-                                &:before {
+                                &:after {
                                     line-height: 3rem;
                                     display: inline-block;
                                 }
@@ -450,24 +449,12 @@
                                     font-size: 2rem;
                                 }
 
-                                &:after,
-                                &:before {
-                                    vertical-align: top;
-                                    font-weight: bold;
-                                }
-
                                 &:after {
-                                    padding: 0 16px;
+                                    padding: 0 3.5%;
                                     color: black;
                                     content: "Passengers";
-                                }
-
-                                &:before {
-                                    float: right;
-                                    padding: 0 20px;
-                                    background-color: black;
-                                    color: white;
-                                    content: "Reserve Now >";
+                                    vertical-align: top;
+                                    font-weight: bold;
                                 }
                             }
 
@@ -478,6 +465,7 @@
                             position: absolute;
                             right: 0;
                             bottom: 0;
+                            background-color: black;
 
                             .els-button {
                                 padding: 8px 15px;
