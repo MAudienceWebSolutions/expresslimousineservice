@@ -202,6 +202,34 @@ body footer[role="contentinfo"] a:active {
   background-color: #e5e5e5;
   padding: 10px;
 }
+#secondary.widget-area .gform_widget {
+  color: white;
+  background-color: black;
+}
+#secondary.widget-area .gform_widget h2 {
+  font-weight: 100;
+  text-transform: uppercase;
+}
+#secondary.widget-area .gform_widget > h2 {
+  text-align: center;
+  line-height: 3rem;
+  font-size: 1.25rem;
+  border-bottom: 1px solid white;
+}
+#secondary.widget-area .gform_widget .gform_wrapper {
+  padding: 12.5px 17.5px;
+  margin: 0;
+}
+#secondary.widget-area .gform_widget .gform_wrapper .top_label .gfield_label {
+  display: none;
+}
+#secondary.widget-area .gform_widget .gform_wrapper input,
+#secondary.widget-area .gform_widget .gform_wrapper select {
+  border-radius: 0;
+}
+#secondary.widget-area .gform_widget .gform_wrapper .gform_fields .gfield {
+  margin: 15px 0;
+}
 /*  ******************************** FOOTER ********************************  */
 .template-front-page .widget-area {
   border: none;

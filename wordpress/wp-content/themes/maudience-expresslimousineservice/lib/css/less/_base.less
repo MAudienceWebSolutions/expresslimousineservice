@@ -202,6 +202,42 @@
                 background-color: @child-color-grey;
                 padding: 10px;
             }
+
+
+
+            .gform_widget {
+                color: white;
+                background-color: black;
+
+                h2 {
+                    font-weight: 100;
+                    text-transform: uppercase;
+                }
+
+                > h2 {
+                    text-align: center;
+                    line-height: 3rem;
+                    font-size: 1.25rem;
+                    border-bottom: 1px solid white;
+                }
+
+                li > h2 {
+                }
+
+                .gform_wrapper {
+                    padding: 12.5px 17.5px;
+                    margin: 0;
+
+                    .top_label .gfield_label { display: none; }
+
+                    input,
+                    select { border-radius: 0; }
+
+                    .gform_fields .gfield { margin: 15px 0; }
+                }
+            }
+        
+
         }
 
     /*  ******************************** FOOTER ********************************  */
