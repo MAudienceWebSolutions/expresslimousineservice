@@ -256,6 +256,16 @@ footer .menu-footer-services-container .menu > li > a {
   text-transform: uppercase;
   border-bottom: 1px solid white;
 }
+.page-template-front-page .top-section .home-top-right .gform_wrapper {
+  padding: 12.5px 17.5px;
+}
+.page-template-front-page .top-section .home-top-right .gform_wrapper .top_label .gfield_label {
+  display: none;
+}
+.page-template-front-page .top-section .home-top-right .gform_wrapper input,
+.page-template-front-page .top-section .home-top-right .gform_wrapper select {
+  border-radius: 0;
+}
 .page-template-front-page .middle-section h2 {
   text-transform: uppercase;
   text-align: center;
