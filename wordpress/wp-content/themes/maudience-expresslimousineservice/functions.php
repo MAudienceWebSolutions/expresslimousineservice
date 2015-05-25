@@ -371,13 +371,13 @@ require_once('lib/maudience-contactinfo.php');
                             </div><!-- .custom-post-title -->
                         <?php endif; ?>
 
-                        <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key2', true ) ) : ?>
+                        <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key1', true ) ) : ?>
                             <div class="custom-post-capacity">
                                 <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key1', true )); ?>                           
                             </div><!-- .custom-post-capacity -->
                         <?php endif; ?>
 
-                        <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key1', true ) ) : ?>
+                        <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key2', true ) ) : ?>
                             <div class="custom-post-upselltext">
                                 <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key2', true )); ?>                            
                             </div><!-- .custom-post-upselltext -->
