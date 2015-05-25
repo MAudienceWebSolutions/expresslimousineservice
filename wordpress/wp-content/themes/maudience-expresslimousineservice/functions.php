@@ -373,25 +373,24 @@ require_once('lib/maudience-contactinfo.php');
 
                         <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key1', true ) ) : ?>
                             <div class="custom-post-capacity">
-                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key1', true )); ?>                           
+                                <span><?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key1', true )); ?></span>                           
                             </div><!-- .custom-post-capacity -->
                         <?php endif; ?>
 
                         <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key2', true ) ) : ?>
                             <div class="custom-post-upselltext">
-                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key2', true )); ?>                            
+                                <span><?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key2', true )); ?></span>                            
                             </div><!-- .custom-post-upselltext -->
                         <?php endif; ?>
 
                         <?php if ( get_post_meta( get_the_ID(), '_ma_meta_value_key3', true ) ) : ?>
                             <div class="custom-post-authormeta">
-                                <?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key3', true )); ?>                            
+                                <span><?php echo esc_html(get_post_meta( get_the_ID(), '_ma_meta_value_key3', true )); ?></span>                            
                             </div><!-- .custom-post-upselltext -->
                         <?php endif; ?>
-
-                        
                     </div>
                 </a>
+                <div class="reserve-now-wrap"><a class="els-button" href='/reservations'>Reserve Now ></a></div><!-- .custom-post-upselltext -->              
                <!--  <div class="cpt-button-wrap">
                     <a class="ctl-button ctl-viewdetails-button" href="<?php the_permalink() ?>" />View Details <span>>></span></a>
                     <a class="ctl-button ctl-inquire-button" href="/contact/" />Inquire</a>
