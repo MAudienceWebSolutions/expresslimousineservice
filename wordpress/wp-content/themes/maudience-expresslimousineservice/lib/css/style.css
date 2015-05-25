@@ -378,6 +378,15 @@ footer .menu-footer-services-container .menu > li > a {
   box-shadow: none;
 }
 /* FLEET ARCHIVE PAGE */
+.post-type-archive-vehicles .archive-header {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.post-type-archive-vehicles .archive-title {
+  color: black;
+  font-size: 2rem;
+}
 .post-type-archive-vehicles .custom-post-type-list {
   flex-wrap: wrap;
 }
