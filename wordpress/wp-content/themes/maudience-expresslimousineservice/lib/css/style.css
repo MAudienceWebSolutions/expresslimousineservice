@@ -249,15 +249,18 @@ footer .menu-footer-services-container .menu > li > a {
   background-color: black;
 }
 .page-template-front-page .top-section .home-top-right h2 {
+  font-weight: 100;
+  text-transform: uppercase;
+}
+.page-template-front-page .top-section .home-top-right > h2 {
   text-align: center;
   line-height: 3rem;
   font-size: 1.25rem;
-  font-weight: 100;
-  text-transform: uppercase;
   border-bottom: 1px solid white;
 }
 .page-template-front-page .top-section .home-top-right .gform_wrapper {
   padding: 12.5px 17.5px;
+  margin: 0;
 }
 .page-template-front-page .top-section .home-top-right .gform_wrapper .top_label .gfield_label {
   display: none;
@@ -265,6 +268,9 @@ footer .menu-footer-services-container .menu > li > a {
 .page-template-front-page .top-section .home-top-right .gform_wrapper input,
 .page-template-front-page .top-section .home-top-right .gform_wrapper select {
   border-radius: 0;
+}
+.page-template-front-page .top-section .home-top-right .gform_wrapper .gform_fields .gfield {
+  margin: 15px 0;
 }
 .page-template-front-page .middle-section h2 {
   text-transform: uppercase;
