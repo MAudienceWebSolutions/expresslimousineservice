@@ -1,0 +1,30 @@
+.zopim_btn_orange {
+	display: inline-block;
+	width: 150px;
+	padding: 10px 0px;
+	background: #F38313;
+	color: #fff;
+	border-radius: 5px;
+	font-weight: 700;
+	font-style: normal;
+	font-size: 14px;
+	border: none;
+	text-shadow: 0px -1px 1px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	text-align: center;
+	border: 1px solid #E37A13;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.error {
+	color: red;
+}
+
+.animate{
+	background: url('https://dashboard.zopim.com/dashboard/images/spinner.gif') !important;
+	background-repeat: no-repeat !important;
+	background-color: #2ea2cc !important;
+	background-position: center center !important;
+	color: #2ea2cc !important;
+	opacity: 0.5;
+}
