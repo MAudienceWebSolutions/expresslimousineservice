@@ -276,6 +276,21 @@ footer .footer-widget-right .textwidget {
 *****************************************************************/
 /*  ******************************** WOOCOMMERCE ********************************  */
 /*  ******************************** GRAVITYFORMS ********************************  */
+#input_1_39 {
+  width: 90% !important;
+}
+#field_1_66 {
+  border-bottom: none;
+}
+#field_1_66 h2 {
+  text-transform: capitalize;
+  text-align: center;
+}
+#field_1_65 div {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 100;
+}
 /* PAGE SPECIFIC STYLES
 *****************************************************************/
 /* HOME PAGE */
