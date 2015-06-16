@@ -794,6 +794,15 @@ class Soliloquy_Metaboxes_Lite {
                             <p class="description"><?php _e( 'Adds custom CSS classes to this slider. Enter one class per line.', 'soliloquy' ); ?></p>
                         </td>
                     </tr>
+                    <tr id="soliloquy-config-rtl-box">
+                        <th scope="row">
+                            <label for="soliloquy-config-rtl"><?php _e( 'Enable RTL Support?', 'soliloquy' ); ?></label>
+                        </th>
+                        <td>
+                            <input id="soliloquy-config-rtl" type="checkbox" name="_soliloquy[rtl]" value="<?php echo $this->get_config( 'rtl', $this->get_config_default( 'rtl' ) ); ?>" <?php checked( $this->get_config( 'rtl', $this->get_config_default( 'rtl' ) ), 1 ); ?> />
+                            <span class="description"><?php _e( 'Enables or disables RTL support in Soliloquy for right-to-left languages.', 'soliloquy' ); ?></span>
+                        </td>
+                    </tr>
                     <?php do_action( 'soliloquy_misc_box', $post ); ?>
                 </tbody>
             </table>
@@ -871,6 +880,7 @@ class Soliloquy_Metaboxes_Lite {
         $settings['config']['classes']       = explode( "\n", $_POST['_soliloquy']['classes'] );
         $settings['config']['title']         = trim( strip_tags( $_POST['_soliloquy']['title'] ) );
         $settings['config']['slug']          = sanitize_text_field( $_POST['_soliloquy']['slug'] );
+        $settings['config']['rtl']           = ( isset( $_POST['_soliloquy']['rtl'] ) ? 1 : 0 );
 
         // If on an soliloquy post type, map the title and slug of the post object to the custom fields if no value exists yet.
         if ( isset( $post->post_type ) && 'soliloquy' == $post->post_type ) {

@@ -1089,7 +1089,7 @@ function soliloquy_ajax_prepare_slider_data( $slider_data, $id, $type = 'image',
             $attachment = get_post( $id );
             $url        = wp_get_attachment_image_src( $id, 'full' );
             $alt_text   = get_post_meta( $id, '_wp_attachment_image_alt', true );
-            $slider_data['slider'][$id] = array(
+            $slider_data['slider'][ $id ] = array(
                 'status'  		=> $publishingDefault,
                 'id'      		=> $id,
                 'attachment_id' => $id,
@@ -1102,7 +1102,7 @@ function soliloquy_ajax_prepare_slider_data( $slider_data, $id, $type = 'image',
             );
             break;
         case 'video' :
-            $slider_data['slider'][$id] = array(
+            $slider_data['slider'][ $id ] = array(
                 'status'  => $publishingDefault,
                 'id'      => $id,
                 'src'     => isset( $data['src'] ) ? esc_url( $data['src'] ) : '',
@@ -1146,10 +1146,12 @@ function soliloquy_ajax_prepare_slider_data( $slider_data, $id, $type = 'image',
 		        
 		        // If a thumbnail was found, import it to the local filesystem
 		        $stream = Soliloquy_Import::get_instance()->import_remote_image( $data['src'], $data, $id, 0, true );
-		        if ( empty( $stream['error'] ) || isset( $stream['error'] ) && ! $stream['error'] ) {
-	                $slider_data['slider'][$id]['attachment_id'] = $stream['attachment_id'];
-	                $slider_data['slider'][$id]['src'] = $stream['url'];
-	            }
+                if ( ! is_wp_error( $stream ) ) {
+    		        if ( empty( $stream['error'] ) || isset( $stream['error'] ) && ! $stream['error'] ) {
+    	                $slider_data['slider'][$id]['attachment_id'] = $stream['attachment_id'];
+    	                $slider_data['slider'][$id]['src'] = $stream['url'];
+    	            }
+                }
 	        }
 	            
             break;
@@ -1279,4 +1281,49 @@ function soliloquy_ajax_get_vimeo_thumbnail_url($videoID) {
 	unset( $vimeo );
 	return $thumbnail['link'];
 	
+}
+
+add_action( 'wp_ajax_soliloquy_init_sliders', 'soliloquy_ajax_init_sliders' );
+add_action( 'wp_ajax_nopriv_soliloquy_init_sliders', 'soliloquy_ajax_init_sliders' );
+/**
+ * Grabs JS and executes it for any uninitialised sliders on screen
+ *
+ * Used by soliloquyInitManually() JS function, which in turn is called
+ * by AJAX requests e.g. after an Infinite Scroll event.
+ *
+ * @since 1.0.0
+ */
+function soliloquy_ajax_init_sliders() {
+
+    // Run a security check first.
+    check_ajax_referer( 'soliloquy-ajax-nonce', 'ajax_nonce' );
+
+    // Check we have some slider IDs
+    if ( ! isset( $_REQUEST['ids'] ) ) {
+        die();
+    }
+
+    // Setup instance
+    $instance = Soliloquy_Shortcode::get_instance();
+    $base = Soliloquy::get_instance();
+
+    // Build JS for each slider
+    $js = '';
+    foreach ( $_REQUEST['ids'] as $slider_id ) {
+        // Get slider
+        $data = $base->get_slider( $slider_id );
+
+        // If no slider found, skip
+        if ( ! $data ) {
+            continue;
+        }
+
+        // Build JS for this slider
+        $js .= $instance->slider_init_single( $data, true );
+    }
+
+    // Output JS
+    echo $js;
+    die();
+
 }

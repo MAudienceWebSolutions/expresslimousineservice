@@ -23,13 +23,19 @@ function soliloquyYouTubeVids(data, id, width, height, holder, $){
 
     // Load a new video into the slider.
     if ( YT.Player ) {
-        soliloquy_youtube[id] = new YT.Player(holder, {
-            videoId:    id,
-            playerVars: data,
-            events: {
-                'onStateChange' : soliloquyYouTubeOnStateChange
-            }
-        });
+        
+        // Only init YouTube player if we haven't done so already for this video ID
+        // If we have multiple sliders on a single page, this function is called twice,
+        // so if we re-init the player a second time, everything breaks.
+        if ( typeof soliloquy_youtube[id] === 'undefined' ) {
+            soliloquy_youtube[id] = new YT.Player(holder, {
+                videoId:    id,
+                playerVars: data,
+                events: {
+                    'onStateChange' : soliloquyYouTubeOnStateChange
+                }
+            });
+        }
     }
 }
 function soliloquyYouTubeOnStateChange(event){
@@ -146,4 +152,84 @@ function soliloquyWistiaVids(data, id, width, height, holder, $){
             }
         });
     }
+}
+function soliloquyLocalVids(data, id, width, height, holder, $){
+    // Immediately make the holder visible and increase z-index to overlay the player icon and caption.
+    $('#' + holder).show().css({'display':'block','z-index':'1210'});
+
+    // Build atts
+    var attrs = {};
+    $.each($('#' + holder)[0].attributes, function(idx, attr){
+        attrs[attr.nodeName] = attr.nodeValue;
+    });
+
+    // Build features for MediaElementPlayer
+    var features = [];
+    if (data.playpause === 1) {
+        features.push('playpause');
+    }
+    if (data.progress === 1) {
+        features.push('progress');
+    }
+    if (data.current === 1) {
+        features.push('current');
+    }
+    if (data.duration === 1) {
+        features.push('duration');
+    }
+    if (data.volume === 1) {
+        features.push('volume');
+    }
+
+    // Init MediaElementPlayer
+    soliloquy_local[id] = new MediaElementPlayer( 'video#' + holder, {
+        features: features,
+        success: function( mediaElement, domObject ) {
+            if (data.autoplay === 1) {
+                mediaElement.addEventListener('canplay', function() {
+                    // Player is ready
+                    mediaElement.play();
+                }, false);
+            }
+        }
+    });
+
+}
+
+/**
+* Developer function: call this to initialise any new sliders that
+* have appeared on screen after the initial page load.
+*
+* You'd typically use this with an Infinite Scroll plugin or AJAX call
+* - most plugins let you specify a callback, at which point you can
+* just call soliloquyInitManually()
+*/
+function soliloquyInitManually() {
+
+    jQuery( document ).ready(function( $ ) {
+        // Find all sliders with data-soliloquy-loaded=0
+        var soliloquy_sliders = [];
+        $( ".soliloquy-outer-container[data-soliloquy-loaded='0']" ).each(function() {
+            soliloquy_sliders.push( $( '.soliloquy-container', $( this ) ).attr( 'id' ).replace( /^\D+/g, '') );
+        });
+
+        if ( soliloquy_sliders.length > 0 ) {
+            // Send list of Soliloquy slider IDs via AJAX call to soliloquy_ajax_init_sliders()
+            $.post(
+                soliloquy_ajax.ajax,
+                {
+                    action:     'soliloquy_init_sliders',
+                    ajax_nonce: soliloquy_ajax.ajax_nonce,
+                    ids:        soliloquy_sliders,
+                },
+                function(response) {
+                    if ( response !== '-1' && response !== '0' ) {
+                        eval( response );
+                    }
+                }
+            );
+        }
+
+    });
+
 }

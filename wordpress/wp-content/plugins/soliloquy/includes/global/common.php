@@ -395,6 +395,54 @@ class Soliloquy_Common {
     }
 
     /**
+     * Returns an array of self hosted video supported file types
+     * Edit this to extend support, but bear in mind mediaelementplayer's limitations
+     *
+     * @since 2.4.1.4
+     *
+     * @return array Supported File Types
+     */
+    public function get_self_hosted_supported_filetypes() {
+
+        $file_types = array(
+            'mp4',
+            'flv',
+            'ogv',
+            'webm',
+        );
+
+        $file_types = apply_filters( 'soliloquy_get_self_hosted_supported_filetypes', $file_types );
+
+        return $file_types;
+
+    }
+
+    /**
+     * Converts the given array to a string
+     *
+     * @since 2.4.1.4
+     *
+     * @param string $glue Glue to join array values together
+     * @return string Supported File Types
+     */
+    public function get_self_hosted_supported_filetypes_string( $glue = '|' ) {
+
+        $file_types = $this->get_self_hosted_supported_filetypes();
+        $file_types_str = '';
+        foreach ( $file_types as $file_type ) {
+            $file_types_str .= '.' . $file_type . $glue;
+        }
+
+        // Trim final glue
+        if ( ! empty( $glue ) ) {
+            $file_types_str = rtrim( $file_types_str, $glue );
+        }
+
+        return $file_types_str;
+
+    }
+
+    /**
      * API method for cropping images.
      *
      * @since 1.0.0

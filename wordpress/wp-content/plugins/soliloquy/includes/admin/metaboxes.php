@@ -684,7 +684,7 @@ class Soliloquy_Metaboxes {
                         <div class="soliloquy-meta-sidebar">
                             <h3><?php _e( 'Helpful Tips', 'soliloquy' ); ?></h3>
                             <strong>Creating Video Slides</strong>
-                            <p><?php _e( 'Video links can be from either YouTube, Vimeo or Wistia. They <strong>must</strong> follow one of the formats listed below:', 'soliloquy' ) ?></p>
+                            <p><?php _e( 'Video links can be from either YouTube, Vimeo, Wistia or local videos. They <strong>must</strong> follow one of the formats listed below:', 'soliloquy' ) ?></p>
                             
                             <div class="soliloquy-accepted-urls">                               
                                 <span><strong><?php _e( 'YouTube URLs', 'soliloquy' ); ?></strong></span>
@@ -705,7 +705,13 @@ class Soliloquy_Metaboxes {
                                 <span>*wistia.com/medias/*</span>
                                 <span>*wistia.com/embed/*</span>
                                 <span>*wi.st/medias/*</span>
-                                <span>*wi.st/embed/*</span>
+                                <span>*wi.st/embed/*</span><br />
+
+                                <span><strong><?php _e( 'Local URLs', 'soliloquy' ); ?></strong></span>
+                                <span>http://yoursite.com/video.mp4</span>
+                                <span>http://yoursite.com/video.flv</span>
+                                <span>http://yoursite.com/video.ogv</span>
+                                <span>http://yoursite.com/video.webm</span>
                             </div>
                         </div><!-- end .soliloquy-meta-sidebar -->
                     </div><!-- end .media-sidebar -->

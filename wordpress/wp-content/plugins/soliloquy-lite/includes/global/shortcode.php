@@ -473,6 +473,11 @@ class Soliloquy_Shortcode_Lite {
         // Add custom class based on the theme.
         $classes[] = 'soliloquy-theme-' . $this->get_config( 'slider_theme', $data );
 
+        // If the slider has RTL support, add a class for it.
+        if ( $this->get_config( 'rtl', $data ) ) {
+            $classes[] = 'soliloquy-rtl';
+        }
+
         return trim( implode( ' ', array_map( 'trim', array_map( 'sanitize_html_class', array_unique( $classes ) ) ) ) );
 
     }

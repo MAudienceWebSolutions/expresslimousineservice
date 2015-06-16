@@ -256,7 +256,7 @@
                 soliloquy_metabox.ajax,
                 data,
                 function(response){
-	                // Set small delay before closing modal.
+                    // Set small delay before closing modal.
                     setTimeout(function(){
                         // Re-append modal to correct spot and revert text back to default.
                         append_and_hide(insert_e);
@@ -647,7 +647,7 @@
                     }
                 }
             });
-            
+
             // Prepare the data to be sent.
             var data = {
                 action:    'soliloquy_save_meta',

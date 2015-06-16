@@ -1,0 +1,355 @@
+/* ==========================================================================
+   Metro Theme Styles
+   ========================================================================== */
+
+.soliloquy-container.soliloquy-theme-metro:after {
+    display: none;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    content: url('images/slider-arrows-horizontal.png') url('images/slider-arrows-vertical.png') url('images/pause-play.png');
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-controls-direction a {
+    -moz-transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+	display: block;
+	opacity: 0;
+	outline: none;
+	transition: all .3s ease;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-prev {
+    display: block;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    top: 50%;
+    margin-top: -18px;
+    left: -36px;
+    z-index: 1320;
+    background: transparent url('images/slider-arrows-horizontal.png') no-repeat scroll 0 0;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-next {
+    display: block;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    top: 50%;
+    margin-top: -18px;
+    right: -36px;
+    z-index: 1320;
+    background: transparent url('images/slider-arrows-horizontal.png') no-repeat scroll 0 -36px;
+}
+
+.soliloquy-container.soliloquy-transition-vertical.soliloquy-theme-metro .soliloquy-prev {
+    background: transparent url('images/slider-arrows-vertical.png') no-repeat scroll 0 0;
+}
+
+.soliloquy-container.soliloquy-transition-vertical.soliloquy-theme-metro .soliloquy-next {
+    background: transparent url('images/slider-arrows-vertical.png') no-repeat scroll 0 -36px;
+}
+
+.soliloquy-container.soliloquy-theme-metro:hover .soliloquy-prev {
+    opacity: 1;
+    left: 10px;
+}
+
+.soliloquy-container.soliloquy-theme-metro:hover .soliloquy-next {
+    opacity: 1;
+    right: 10px;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-pager {
+    width: 100%;
+    margin: 0 0 0 5px;
+    position: absolute;
+    bottom: 10px;
+    height: 14px;
+    text-align: left;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-pager-item {
+    display: inline-block;
+    margin: 0 0 0 5px;
+    position: relative;
+    z-index: 1320;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-pager-item:first-child {
+    margin-left: 5px;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-pager-link {
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6C000000,endColorstr=#6C000000);
+	background: rgba(0, 0, 0, .3);
+	background-image: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6C000000,endColorstr=#6C000000);
+	height: 10px;
+	position: relative;
+	text-indent: -9999px;
+	width: 10px;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-pager-link:hover,
+.soliloquy-container.soliloquy-theme-metro .soliloquy-pager-link.active {
+    background: #222;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-controls-auto-item {
+    -moz-transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+	bottom: 10px;
+	display: none\9;
+	line-height: 0;
+	opacity: 0;
+	position: absolute;
+	right: -36px;
+	transition: all .3 ease;
+	width: 36px;
+	height: 36px;
+}
+
+.soliloquy-container.soliloquy-theme-metro:hover .soliloquy-controls-auto-item {
+    display: block\9;
+	opacity: 1;
+	right: 10px;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-stop {
+    display: block;
+    width: 36px;
+    height: 36px;
+    background: url('images/pause-play.png') no-repeat scroll 0 0;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-start {
+    display: block;
+    width: 36px;
+    height: 36px;
+    background: url('images/pause-play.png') no-repeat scroll 0 -36px;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption {
+	margin: 0;
+	padding: 0;
+}
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption.soliloquy-caption-top {
+	width: 100%;
+	top: 10px;
+}
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption.soliloquy-caption-bottom {
+	width: 100%;
+	bottom: 10px;
+}
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption.soliloquy-caption-left {
+	width: 50%;
+	max-height: 80%;
+	top: 10px;
+	left: 56px;
+}
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption.soliloquy-caption-right {
+	width: 50%;
+	max-height: 80%;
+	right: 56px;
+	bottom: 10px;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption .soliloquy-caption-inside {
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6C000000,endColorstr=#6C000000);
+	background: rgba(0, 0, 0, .3);
+	color: #fff;
+	display: block;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#6C000000,endColorstr=#6C000000);
+	font-size: 14px;
+	line-height: 18px;
+	margin: 0;
+	padding: 10px;
+	text-align: left;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+	zoom: 1;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption .soliloquy-caption-inside a {
+	position: relative;
+	z-index: 20;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption .soliloquy-caption-inside h2 {
+	color: #fff;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption-inside .soliloquy-fc-title,
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption-inside .soliloquy-fc-title a {
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption-inside .soliloquy-fc-content {
+	color: #fff;
+	display: block;
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	text-align: left;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption-inside .soliloquy-fc-content.soliloquy-fc-title-above {
+	margin-top: 10px;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption-inside .soliloquy-fc-read-more {
+	display: inline-block;
+	*display: inline;
+	font-weight: bold;
+	text-align: left;
+}
+
+.soliloquy-container.soliloquy-theme-metro .soliloquy-caption-inside .soliloquy-fc-read-more.soliloquy-fc-content-above {
+	margin-top: 10px;
+}
+
+/* ==========================================================================
+   Thumbnails
+   ========================================================================== */
+.soliloquy-thumbnails-outer-container {
+    /**
+    * Thumbnails: Left + Right
+    */
+    &.soliloquy-thumbnails-position-left,
+    &.soliloquy-thumbnails-position-right {
+        /**
+        * Thumbnails Container
+        */
+        .soliloquy-thumbnails-container.soliloquy-theme-metro {
+        	padding: 36px 0 !important;
+
+            /**
+            * Navigation Arrows
+            */
+            .soliloquy-controls {
+                .soliloquy-prev {
+                	top: -36px;
+                	opacity: 1;
+                	background-image: url(images/slider-arrows-vertical.png);
+                	background-position: 0 100%;
+                }
+
+                .soliloquy-next {
+                	bottom: -36px;
+                	opacity: 1;
+                	background-image: url(images/slider-arrows-vertical.png);
+                	background-position: 0 0;
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   Retina Styles
+   ========================================================================== */
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+    .soliloquy-container.soliloquy-theme-metro .soliloquy-prev {
+        background-image: url('images/slider-arrows-horizontal@2x.png');
+		-webkit-background-size: 36px 72px;
+		   -moz-background-size: 36px 72px;
+            -ie-background-size: 36px 72px;
+             -o-background-size: 36px 72px;
+                background-size: 36px 72px;
+    }
+
+    .soliloquy-container.soliloquy-theme-metro .soliloquy-next {
+        background-image: url('images/slider-arrows-horizontal@2x.png');
+		-webkit-background-size: 36px 72px;
+		   -moz-background-size: 36px 72px;
+            -ie-background-size: 36px 72px;
+             -o-background-size: 36px 72px;
+                background-size: 36px 72px;
+    }
+
+    .soliloquy-container.soliloquy-transition-vertical.soliloquy-theme-metro .soliloquy-prev {
+		background-image: url('images/slider-arrows-vertical@2x.png');
+		-webkit-background-size: 36px 72px;
+		   -moz-background-size: 36px 72px;
+            -ie-background-size: 36px 72px;
+             -o-background-size: 36px 72px;
+                background-size: 36px 72px;
+	}
+
+    .soliloquy-container.soliloquy-transition-vertical.soliloquy-theme-metro .soliloquy-next {
+		background-image: url('images/slider-arrows-vertical@2x.png');
+		-webkit-background-size: 36px 72px;
+		   -moz-background-size: 36px 72px;
+            -ie-background-size: 36px 72px;
+             -o-background-size: 36px 72px;
+                background-size: 36px 72px;
+	}
+
+	.soliloquy-container.soliloquy-theme-metro .soliloquy-stop {
+		background-image: url('images/pause-play@2x.png');
+		-webkit-background-size: 36px 72px;
+		   -moz-background-size: 36px 72px;
+            -ie-background-size: 36px 72px;
+             -o-background-size: 36px 72px;
+                background-size: 36px 72px;
+	}
+
+	.soliloquy-container.soliloquy-theme-metro .soliloquy-start {
+		background-image: url('images/play-play@2x.png');
+		-webkit-background-size: 36px 72px;
+		   -moz-background-size: 36px 72px;
+            -ie-background-size: 36px 72px;
+             -o-background-size: 36px 72px;
+                background-size: 36px 72px;
+	}
+
+	.soliloquy-thumbnails-outer-container {
+        /**
+        * Thumbnails: Left + Right
+        */
+        &.soliloquy-thumbnails-position-left,
+        &.soliloquy-thumbnails-position-right {
+            /**
+            * Thumbnails Container
+            */
+            .soliloquy-thumbnails-container.soliloquy-theme-metro {
+                /**
+                * Navigation Arrows
+                */
+                .soliloquy-controls {
+                    .soliloquy-prev {
+                        span {
+                            background-image: url(images/slider-arrows-vertical@2x.png);
+                            background-size: 36px 72px;
+                        }
+                    }
+
+                    .soliloquy-next {
+                        span {
+                            background-image: url(images/slider-arrows-vertical@2x.png);
+                            background-size: 36px 72px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

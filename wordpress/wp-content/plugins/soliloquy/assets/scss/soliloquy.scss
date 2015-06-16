@@ -300,7 +300,20 @@
     z-index: 1200;
     background: 0 0;
     width: 100%;
-    height: 100%}
+    height: 100%
+}
+
+/**
+* Local Video
+*/
+.soliloquy-container video {
+    position: relative;
+    width: 100%;
+}
+.soliloquy-container div.mejs-container div.mejs-controls {
+    z-index: 1211; /* Ensures controls display above video itself, which has z-index = 1210 when initialised */
+}
+
 .soliloquy-container .soliloquy-html-content {
     position: absolute;
     width: 100%;
@@ -369,6 +382,126 @@
 	.soliloquy-thumbnails-item {
 		float: right !important;
 	}
+}
+
+/**
+* Thumbnails
+*/
+.soliloquy-thumbnails-outer-container {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+
+    &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+
+    /**
+    * Thumbnail Image Opacity
+    */
+    .soliloquy-thumbnails-container {
+        box-sizing: border-box;
+
+        .soliloquy-item {
+            opacity: 0.5;
+        }
+        .soliloquy-active-slide,
+        .soliloquy-item:hover {
+            opacity: 1;
+        }
+    }  
+
+    /**
+    * Thumbnails: Left + Right
+    */
+    &.soliloquy-thumbnails-position-left,
+    &.soliloquy-thumbnails-position-right {
+        /**
+        * Slider Container
+        */
+        .soliloquy-container {
+            position: absolute;
+            z-index: 1;
+        }
+
+        /**
+        * Thumbnails Container
+        */
+        .soliloquy-thumbnails-container {
+            position: relative;
+            z-index: 3;
+            margin: 0 !important;
+            padding: 32px 0 !important;
+
+            /**
+            * Thumbnails
+            */
+            .soliloquy-viewport {
+                z-index: 2;
+            }
+
+            /**
+            * Navigation Arrows
+            */
+            .soliloquy-controls {
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                width: 100%;
+                height: 100%;
+
+                .soliloquy-prev {
+                    position: absolute;
+                    top: -32px;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    background-image: url(images/up.png);
+                }
+
+                .soliloquy-next {
+                    position: absolute;
+                    top: auto;
+                    bottom: -32px;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    background-image: url(images/down.png);
+                }
+            }
+        }
+    }  
+
+    /**
+    * Thumbnails: Left
+    */
+    &.soliloquy-thumbnails-position-left {
+        /**
+        * Thumbnails Container
+        */
+        .soliloquy-thumbnails-container {
+            float: left;
+        }
+    }    
+
+    /**
+    * Thumbnails: Right
+    */
+    &.soliloquy-thumbnails-position-right {
+        /**
+        * Thumbnails Container
+        */
+        .soliloquy-thumbnails-container {
+            float: right;
+        }
+    }
 }
 
 /**

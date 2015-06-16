@@ -176,6 +176,41 @@
 }
 
 /* ==========================================================================
+   Thumbnails
+   ========================================================================== */
+.soliloquy-thumbnails-outer-container {
+    /**
+    * Thumbnails: Left + Right
+    */
+    &.soliloquy-thumbnails-position-left,
+    &.soliloquy-thumbnails-position-right {
+        /**
+        * Thumbnails Container
+        */
+        .soliloquy-thumbnails-container.soliloquy-theme-classic {
+            /**
+            * Navigation Arrows
+            */
+            .soliloquy-controls {
+                .soliloquy-prev {
+                    width: 32px;
+                    height: 32px;
+                    background-color: rgba(0,0,0,0.7);
+                    background-position: 50% 50%;
+                }
+
+                .soliloquy-next {
+                    width: 32px;
+                    height: 32px;
+                    background-color: rgba(0,0,0,0.7);
+                    background-position: 50% 50%;
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
    Retina Styles
    ========================================================================== */
 

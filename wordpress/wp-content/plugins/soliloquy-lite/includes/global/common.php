@@ -145,7 +145,8 @@ class Soliloquy_Common_Lite {
             'slider'        => 1,
             'classes'       => array(),
             'title'         => '',
-            'slug'          => ''
+            'slug'          => '',
+            'rtl'           => 0,
         );
         return apply_filters( 'soliloquy_defaults', $defaults, $post_id );
 

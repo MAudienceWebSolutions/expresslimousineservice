@@ -1,0 +1,326 @@
+/* ==========================================================================
+   Karisma Theme Styles
+   ========================================================================== */
+
+.soliloquy-container.soliloquy-theme-karisma:after {
+    display: none;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    content: url('images/left.png') url('images/right.png') url('images/circles.png') url('images/pause.png') url('images/play.png');
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-direction a,
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item,
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item a {
+    -webkit-transition: background-color .2s linear, color .2s linear;
+    -moz-transition: background-color .2s linear, color .2s linear;
+    -o-transition: background-color .2s linear, color .2s linear;
+    -ms-transition: background-color .2s linear, color .2s linear;
+    transition: background-color .2s linear, color .2s linear;
+    background: #222;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    top: auto;
+    left: auto;
+    width: 23px;
+    height: 23px;
+    margin-top: 0;
+    bottom: 10px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-direction a:hover,
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item a:hover {
+    background: #ffd62c;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-prev {
+    right: 38px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-next {
+    right: 10px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-prev span,
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-next span {
+    width: 7px;
+    height: 11px;
+    display: block;
+    background: transparent url('images/left.png') no-repeat scroll 0 0;
+    margin: 6px 0 0 7px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-next span {
+    background: transparent url('images/right.png') no-repeat scroll 0 0;
+    margin: 6px 0 0 9px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-prev:hover span,
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-next:hover span {
+    background-position: 0 -11px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-pager {
+    width: auto;
+    height: 11px;
+    right: 10px;
+    bottom: 16px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-has-controls-auto .soliloquy-pager {
+    right: 43px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-has-controls-direction .soliloquy-pager {
+    right: 71px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-has-controls-direction.soliloquy-has-controls-auto .soliloquy-pager {
+    right: 99px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-item {
+    margin-left: 5px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link {
+    width: 11px;
+    height: 11px;
+    background: transparent url('images/circles.png') no-repeat scroll 0 0;
+    transition: none;
+    -moz-transition: none;
+    -webkit-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link:hover,
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link.active {
+    background: transparent url('images/circles.png') no-repeat scroll 0 -11px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item {
+    right: 10px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-has-controls-direction .soliloquy-controls-auto-item {
+    right: 67px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item a {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item .soliloquy-stop span {
+    width: 7px;
+    height: 11px;
+    display: block;
+    background: transparent url('images/pause.png') no-repeat scroll 0 0;
+    margin: 6px 0 0 8px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item .soliloquy-stop:hover span {
+    background-position: 0 -11px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item .soliloquy-start span {
+    width: 11px;
+    height: 11px;
+    display: block;
+    background: transparent url('images/play.png') no-repeat scroll 0 0;
+    margin: 6px 0 0 6px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item .soliloquy-start:hover span {
+    background-position: 0 -11px;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption {
+    margin: 0;
+    padding: 0;
+}
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption.soliloquy-caption-top {
+    width: 100%;
+    top: 5px;
+}
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption.soliloquy-caption-bottom {
+    width: 100%;
+    bottom: 5px;
+}
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption.soliloquy-caption-left {
+    width: 55%;
+    height: auto;
+    top: 10px;
+    left: 10px;
+}
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption.soliloquy-caption-right {
+    width: 55%;
+    height: auto;
+    top: 10px;
+    right: 10px;
+}
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption .soliloquy-caption-inside {
+    height: auto !important;
+    font-size: .75em !important;
+    font-style: italic;
+    font-family: Georgia, serif;
+    padding: 10px 20px !important;
+    text-align: left !important;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption-inside a,
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption-inside .soliloquy-fc-title-link,
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption-inside .soliloquy-fc-read-more {
+    color: #ffd62c;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption-inside .soliloquy-fc-title,
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption-inside .soliloquy-fc-title-link {
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption-inside .soliloquy-fc-title-link {
+    font-size: 1em;
+}
+
+.soliloquy-container.soliloquy-theme-karisma .soliloquy-caption-inside .soliloquy-fc-read-more {
+    font-weight: normal;
+}
+
+/* ==========================================================================
+   Thumbnails
+   ========================================================================== */
+.soliloquy-thumbnails-outer-container {
+    /**
+    * Thumbnails: Left + Right
+    */
+    &.soliloquy-thumbnails-position-left,
+    &.soliloquy-thumbnails-position-right {
+        /**
+        * Thumbnails Container
+        */
+        .soliloquy-thumbnails-container.soliloquy-theme-karisma {
+            /**
+            * Navigation Arrows
+            */
+            .soliloquy-controls {
+                .soliloquy-prev {
+                    width: 23px;
+                    height: 23px;
+                    background-image: none;
+                   
+                    span {
+                        width: 11px;
+                        height: 7px;
+                        margin: 8px 6px;
+                        background: url(images/up.png) 100% 0 no-repeat;
+                    }
+
+                    &:hover {
+                        span {
+                            background-position: 0 0;
+                        }
+                    }
+                }
+
+                .soliloquy-next {
+                    width: 23px;
+                    height: 23px;
+                    background-image: none;
+                   
+                    span {
+                        width: 11px;
+                        height: 7px;
+                        margin: 8px 6px;
+                        background: url(images/down.png) 100% 0 no-repeat;
+                    }
+
+                    &:hover {
+                        span {
+                            background-position: 0 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   Retina Styles
+   ========================================================================== */
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+    .soliloquy-container.soliloquy-theme-karisma .soliloquy-prev span {
+        background-image: url('images/left@2x.png');
+        background-size: 7px 22px;
+    }
+
+    .soliloquy-container.soliloquy-theme-karisma .soliloquy-next span {
+        background-image: url('images/right@2x.png');
+        background-size: 7px 22px;
+    }
+
+    .soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link,
+    .soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link:hover,
+    .soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link.active {
+        background-image: url('images/circles@2x.png');
+        background-size: 11px 22px;
+    }
+
+    .soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item .soliloquy-stop span {
+        background-image: url('images/pause@2x.png');
+        background-size: 7px 22px;
+    }
+
+    .soliloquy-container.soliloquy-theme-karisma .soliloquy-controls-auto-item .soliloquy-start span {
+        background-image: url('images/play@2x.png');
+        background-size: 11px 22px;
+    }
+
+    .soliloquy-thumbnails-outer-container {
+        /**
+        * Thumbnails: Left + Right
+        */
+        &.soliloquy-thumbnails-position-left,
+        &.soliloquy-thumbnails-position-right {
+            /**
+            * Thumbnails Container
+            */
+            .soliloquy-thumbnails-container.soliloquy-theme-karisma {
+                /**
+                * Navigation Arrows
+                */
+                .soliloquy-controls {
+                    .soliloquy-prev {
+                        span {
+                            background-image: url(images/up@2x.png);
+                            background-size: 22px 7px;
+                        }
+                    }
+
+                    .soliloquy-next {
+                        span {
+                            background-image: url(images/down@2x.png);
+                            background-size: 22px 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

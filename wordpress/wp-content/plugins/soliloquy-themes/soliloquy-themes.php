@@ -5,7 +5,7 @@
  * Description: Enables custom themes for Soliloquy sliders.
  * Author:      Thomas Griffin
  * Author URI:  http://thomasgriffinmedia.com
- * Version:     2.1.2
+ * Version:     2.1.4
  * Text Domain: soliloquy-themes
  * Domain Path: languages
  *
@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Define necessary addon constants.
 define( 'SOLILOQUY_THEMES_PLUGIN_NAME', 'Soliloquy - Themes Addon' );
-define( 'SOLILOQUY_THEMES_PLUGIN_VERSION', '2.1.2' );
+define( 'SOLILOQUY_THEMES_PLUGIN_VERSION', '2.1.4' );
 define( 'SOLILOQUY_THEMES_PLUGIN_SLUG', 'soliloquy-themes' );
 
 add_action( 'plugins_loaded', 'soliloquy_themes_plugins_loaded' );
