@@ -282,16 +282,30 @@ footer .footer-widget-right .textwidget {
 }
 .gform_footer.top_label {
   position: absolute;
-  bottom: 70px;
+  bottom: 100px;
   left: 0;
   right: 0;
   text-align: center;
+}
+.gfield_html_formatted.gfield_no_follows_desc.field_sublabel_below {
+  text-align: center;
+  font-size: 1.5rem;
 }
 #field_1_65 {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  margin-bottom: 0;
+  line-height: 2.5rem;
+}
+#field_1_65 .tipmsg-holder {
+  font-size: 1rem;
+}
+#field_1_65 .phonenumber-holder {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 100;
 }
 #input_1_39 {
   width: 90% !important;
@@ -299,18 +313,13 @@ footer .footer-widget-right .textwidget {
 #field_1_66 {
   border-bottom: none;
   position: absolute;
-  bottom: 30px;
+  bottom: 57.5px;
   left: 0;
   right: 0;
 }
 #field_1_66 h2 {
   text-transform: capitalize;
   text-align: center;
-}
-#field_1_65 div {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 100;
 }
 /* PAGE SPECIFIC STYLES
 *****************************************************************/
