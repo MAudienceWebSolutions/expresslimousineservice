@@ -310,6 +310,9 @@ footer .footer-widget-right .textwidget {
 #input_1_39 {
   width: 90% !important;
 }
+#secondary #input_1_39 {
+  width: 85% !important;
+}
 #field_1_66 {
   border-bottom: none;
   position: absolute;
