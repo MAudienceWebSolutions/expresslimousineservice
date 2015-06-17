@@ -16,11 +16,6 @@ get_header(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header class="entry-header">
-						<?php if ( ! is_page_template( 'page-templates/front-page.php' ) ) : ?>
-						<?php the_post_thumbnail(); ?>
-						<?php endif; ?>
-						<?php echo $post->post_name; ?>
-
 						<?php do_shortcode('[soliloquy id="'.$post->post_name.'"]'); ?>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 					</header>
