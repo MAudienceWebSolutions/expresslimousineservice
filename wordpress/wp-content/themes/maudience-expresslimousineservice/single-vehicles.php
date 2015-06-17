@@ -16,7 +16,7 @@ get_header(); ?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header class="entry-header">
-						<?php do_shortcode('[soliloquy id="'.$post->post_name.'"]'); ?>
+						<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( $post->post_name ); }  ?>
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 					</header>
 
