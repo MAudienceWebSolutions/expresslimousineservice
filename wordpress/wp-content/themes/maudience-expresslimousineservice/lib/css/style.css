@@ -276,6 +276,9 @@ footer .footer-widget-right .textwidget {
 *****************************************************************/
 /*  ******************************** WOOCOMMERCE ********************************  */
 /*  ******************************** GRAVITYFORMS ********************************  */
+#gform_widget-4 .widget-title {
+  font-size: 1rem;
+}
 #gform_1 {
   position: relative;
 }
@@ -359,7 +362,7 @@ footer .footer-widget-right .textwidget {
 .page-template-front-page .top-section .home-top-right > h2 {
   text-align: center;
   line-height: 3rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
   border-bottom: 1px solid white;
 }
 .page-template-front-page .top-section .home-top-right .gform_wrapper {
