@@ -276,11 +276,32 @@ footer .footer-widget-right .textwidget {
 *****************************************************************/
 /*  ******************************** WOOCOMMERCE ********************************  */
 /*  ******************************** GRAVITYFORMS ********************************  */
+#gform_1 {
+  position: relative;
+  min-height: 350px;
+}
+.gform_footer.top_label {
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+#field_1_65 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 #input_1_39 {
   width: 90% !important;
 }
 #field_1_66 {
   border-bottom: none;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
 }
 #field_1_66 h2 {
   text-transform: capitalize;
