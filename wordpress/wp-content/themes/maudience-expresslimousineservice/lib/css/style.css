@@ -209,6 +209,7 @@ body footer[role="contentinfo"] a:active {
 #secondary.widget-area .gform_widget h2 {
   font-weight: 100;
   text-transform: uppercase;
+  font-size: 1rem;
 }
 #secondary.widget-area .gform_widget > h2 {
   text-align: center;
@@ -589,9 +590,8 @@ footer .footer-widget-right .textwidget {
   /*  ******************************** GRAVITYFORMS ********************************  */
   /* PAGE SPECIFIC STYLES
 *****************************************************************/
-  .page-template-front-page .home-middle .custom-post-type-list .custom-post-type-list-item.services {
+  .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services {
     min-height: 150px;
-    max-width: 30%;
     padding-right: 50px;
   }
   .page-template-front-page .bottom-section h2.rounded {
@@ -756,6 +756,9 @@ footer .footer-widget-right .textwidget {
   }
   .page-template-front-page .middle-section {
     background-color: #E5E5E5;
+  }
+  .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services {
+    max-width: 30%;
   }
   .page-template-front-page .section-column {
     width: 50%;
