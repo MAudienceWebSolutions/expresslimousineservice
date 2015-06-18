@@ -209,6 +209,7 @@ body footer[role="contentinfo"] a:active {
 #secondary.widget-area .gform_widget h2 {
   font-weight: 100;
   text-transform: uppercase;
+  font-size: 1rem;
 }
 #secondary.widget-area .gform_widget > h2 {
   text-align: center;
