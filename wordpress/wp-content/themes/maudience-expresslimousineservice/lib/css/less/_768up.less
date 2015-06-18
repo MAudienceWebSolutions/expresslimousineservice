@@ -26,6 +26,34 @@
 
 /* GENERAL STYLES
 *****************************************************************/
+
+    body {
+
+            .site,
+            footer[role="contentinfo"] { 
+                margin: 0;
+                padding: 0;
+                max-width: none;
+            }
+
+            .inner-wrap {
+                max-width: 960px;
+                margin: auto;
+            }
+
+            // this is to make the grey middle section full width on the home page
+            &.page-template-front-page .inner-main-wrap {
+                max-width: none;
+
+                article > .top-section,
+                article > .bottom-section,
+                article > .middle-section .services-information-output {
+                    max-width: 960px;
+                    margin: auto;
+                }
+            }
+        }
+
     .custom-post-type-list {
         .maudience-flexbox(flex-start);
 

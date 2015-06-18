@@ -509,7 +509,7 @@ footer .footer-widget-right .textwidget {
   line-height: 42px;
 }
 /* MOBILE - STARTING BOX/POSITION STYLES */
-@media only screen and (min-width: 200px) {
+@media only screen and (min-width: 0px) {
   /*  0UP RESPONSIVE BASE STYLES
 
     This file contains all styles that do not change based on device
@@ -588,6 +588,14 @@ footer .footer-widget-right .textwidget {
 *****************************************************************/
   /*  ******************************** WOOCOMMERCE ********************************  */
   /*  ******************************** GRAVITYFORMS ********************************  */
+  /*  ******************************** WPMU GOOGLE MAPS + ********************************  */
+  .home-bottom-right .textwidget {
+    max-width: 96%;
+    margin: auto;
+  }
+  .home-bottom-right .textwidget div {
+    max-width: 100%;
+  }
   /* PAGE SPECIFIC STYLES
 *****************************************************************/
   .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services {
@@ -595,7 +603,8 @@ footer .footer-widget-right .textwidget {
     padding-right: 50px;
   }
   .page-template-front-page .bottom-section h2.rounded {
-    width: 100%;
+    display: block;
+    margin: 0 2.5px 20px;
   }
 }
 /* TABLET + */
@@ -626,6 +635,25 @@ footer .footer-widget-right .textwidget {
 \* ---------------------------------------------- */
   /* GENERAL STYLES
 *****************************************************************/
+  body .site,
+  body footer[role="contentinfo"] {
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+  body .inner-wrap {
+    max-width: 960px;
+    margin: auto;
+  }
+  body.page-template-front-page .inner-main-wrap {
+    max-width: none;
+  }
+  body.page-template-front-page .inner-main-wrap article > .top-section,
+  body.page-template-front-page .inner-main-wrap article > .bottom-section,
+  body.page-template-front-page .inner-main-wrap article > .middle-section .services-information-output {
+    max-width: 960px;
+    margin: auto;
+  }
   .custom-post-type-list {
     display: -webkit-box;
     display: -moz-box;
@@ -789,7 +817,7 @@ footer .footer-widget-right .textwidget {
   }
 }
 /* LARGE DESKTOP + */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1200px) {
   /*  1200UP DESKTOP STYLES 
 
     This file contains all styles that do not change based on device
