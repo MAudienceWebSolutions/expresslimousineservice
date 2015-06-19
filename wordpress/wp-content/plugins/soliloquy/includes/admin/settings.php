@@ -217,20 +217,24 @@ class Soliloquy_Settings {
      * @return null Invalid nonce / no need to save
      */
     public function update_settings() {
-	    
-	    // Check if user pressed 'Update' button and nonce is valid
-	    if ( !isset( $_POST['soliloquy-publishing-default'] ) ) {
-		   	return;
-		}
-		if ( !wp_verify_nonce( $_POST['soliloquy-publishing-default-nonce'], 'soliloquy-publishing-default-nonce' ) ) {
+
+        // Check form was submitted
+        if ( ! isset( $_POST['soliloquy-settings-submit'] ) ) {	
+            return;
+        }
+
+        // Check nonce is valid
+		if ( ! wp_verify_nonce( $_POST['soliloquy-settings-nonce'], 'soliloquy-settings-nonce' ) ) {
 			return;
 		}
-		
-		// Update option
+	
+		// Update options
 		update_option( 'soliloquy-publishing-default', $_POST['soliloquy-publishing-default'] );
-		
-		// Output an admin notice so the user knows what happened
-	    add_action( 'admin_notices', array( $this, 'updated_settings' ) );
+        update_option( 'soliloquy_slide_position', $_POST['soliloquy_slide_position'] );
+
+        // Show confirmation notice
+        add_action( 'admin_notices', array( $this, 'updated_settings' ) );
+    
     }
     
     /**
@@ -398,8 +402,12 @@ class Soliloquy_Settings {
     public function settings_general_tab() {
 	    
 	    // Get settings
-	    $publishingDefault = get_option('soliloquy-publishing-default');
-	    ?>
+	    $publishingDefault = get_option( 'soliloquy-publishing-default' );
+        $slide_position = get_option( 'soliloquy_slide_position' );
+        if ( empty ( $slide_position ) ) {
+            $slide_position = 'after';
+        }
+        ?>
         <div id="soliloquy-settings-general">
             <table class="form-table">
                 <tbody>
@@ -446,27 +454,59 @@ class Soliloquy_Settings {
                             </form>
                         </td>
                     </tr>
-                    
-                    <tr id="soliloquy-publishing-default">
-                        <th scope="row">
-                            <label for="soliloquy-publishing-default"><?php _e( 'New Slide Status', 'soliloquy' ); ?></label>
-                        </th>
-                        <td>
-                            <form id="soliloquy-publishing-default" method="post">
-                                <?php wp_nonce_field( 'soliloquy-publishing-default-nonce', 'soliloquy-publishing-default-nonce' ); ?>
+                </tbody>
+            </table>
+
+            <!-- General Settings -->
+            <form id="soliloquy-settings" method="post">
+                <table class="form-table">
+                    <tbody> 
+                        <!-- Publishing Default -->
+                        <tr id="soliloquy-publishing-default">
+                            <th scope="row">
+                                <label for="soliloquy-publishing-default"><?php _e( 'New Slide Status', 'soliloquy' ); ?></label>
+                            </th>
+                            <td>
                                 <select name="soliloquy-publishing-default" size="1">
 	                                <option value="active"<?php selected( $publishingDefault, 'active' ); ?>><?php _e( 'Published', 'soliloquy' ); ?></option>
 	                                <option value="pending"<?php selected( $publishingDefault, 'pending' ); ?>><?php _e( 'Draft', 'soliloquy' ); ?></option>
                                 </select>
-                                <?php submit_button( __( 'Update', 'soliloquy' ), 'primary', 'soliloquy-publishing-default-submit', false ); ?>
                                 <p class="description"><?php _e( 'Choose the default status of any new slides that are added/uploaded to your Soliloquy sliders. You can always change slides on an individual basis by editing them.', 'soliloquy' ); ?></p>
-                            </form>
-                        </td>
-                    </tr>
-                    
-                    <?php do_action( 'soliloquy_settings_general_box' ); ?>
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+
+                        <!-- Media Position -->
+                        <tr id="soliloquy-slide-position-box">
+                            <th scope="row">
+                                <label for="soliloquy-slide-position"><?php _e( 'New Slide Position', 'soliloquy' ); ?></label>
+                            </th>
+                            <td>
+                                <select id="soliloquy-slide-position" name="soliloquy_slide_position">
+                                    <?php foreach ( (array) Soliloquy_Common_Admin::get_instance()->get_slide_positions() as $i => $data ) : ?>
+                                        <option value="<?php echo $data['value']; ?>"<?php selected( $data['value'], $slide_position ); ?>><?php echo $data['name']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <p class="description"><?php _e( 'When adding slides to a Slider, choose whether to add slides before or after any existing slides.', 'soliloquy' ); ?></p>
+                            </td>
+                        </tr>
+
+                        <!-- Submit -->
+                        <tr>
+                            <th scope="row">
+                                &nbsp;
+                            </th>
+                            <td>
+                                <?php 
+                                wp_nonce_field( 'soliloquy-settings-nonce', 'soliloquy-settings-nonce' );
+                                submit_button( __( 'Update', 'soliloquy' ), 'primary', 'soliloquy-settings-submit', false ); 
+                                ?>
+                            </td>
+                        </tr>      
+                        
+                        <?php do_action( 'soliloquy_settings_general_box' ); ?>
+                    </tbody>
+                </table>
+            </form>
         </div>
         <?php
 

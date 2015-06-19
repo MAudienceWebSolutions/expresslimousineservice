@@ -3,6 +3,7 @@ var __gf_timeout_handle;
 
 function gf_apply_rules(formId, fields, isInit){
 	var rule_applied = 0;
+	jQuery(document).trigger( 'gform_pre_conditional_logic', [ formId, fields, isInit ] );
 	for(var i=0; i < fields.length; i++){
 		gf_apply_field_rule(formId, fields[i], isInit, function(){
 			rule_applied++;
@@ -401,7 +402,7 @@ function gf_reset_to_default(targetId, defaultValue){
 	});
 
 	//checkboxes and radio buttons
-	var elements = jQuery(targetId).find('input[type="radio"], input[type="checkbox"]');
+	var elements = jQuery(targetId).find('input[type="radio"], input[type="checkbox"]:not(".copy_values_activated")');
 
 	elements.each(function(){
 

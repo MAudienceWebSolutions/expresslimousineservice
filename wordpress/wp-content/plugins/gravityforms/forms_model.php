@@ -463,7 +463,7 @@ class GFFormsModel {
 
 			//assigning this notification to the form_submission action
 			$admin_notification['event'] = 'form_submission';
-			$admin_notification['name']  = __( 'Admin Notification', 'gravityforms' );
+			$admin_notification['name']  = esc_html__( 'Admin Notification', 'gravityforms' );
 			$admin_notification['type']  = 'admin';
 			$admin_notification['id']    = $notification_id;
 
@@ -487,7 +487,7 @@ class GFFormsModel {
 			$notification_id = uniqid();
 			//assigning this notification to the form_submission action
 			$user_notification['event'] = 'form_submission';
-			$user_notification['name']  = __( 'User Notification', 'gravityforms' );
+			$user_notification['name']  = esc_html__( 'User Notification', 'gravityforms' );
 			$user_notification['type']  = 'user';
 			$user_notification['id']    = $notification_id;
 
@@ -662,7 +662,7 @@ class GFFormsModel {
 				// if property is status, prev value is spam and new value is active
 				if ( $property_name == 'status' && $previous_value == 'spam' && $property_value == 'active' && ! rgar( $lead, 'post_id' ) ) {
 					$lead[ $property_name ] = $property_value;
-					$lead['post_id']      = GFCommon::create_post( $form, $lead );
+					$lead['post_id']      = GFCommon::create_post( isset( $form ) ? $form : GFAPI::get_form( $lead['form_id'] ), $lead );
 				}
 
 				do_action( "gform_update_{$property_name}", $lead_id, $property_value, $previous_value );
@@ -763,12 +763,13 @@ class GFFormsModel {
 
 		//Delete from detail long
 		$sql = $wpdb->prepare(
-			" DELETE FROM $lead_detail_long_table
-                                WHERE lead_detail_id IN(
-                                    SELECT ld.id FROM $lead_detail_table ld
-                                    INNER JOIN $lead_table l ON l.id = ld.lead_id
-                                    WHERE l.form_id=%d AND ld.form_id=%d {$status_filter}
-                                )", $form_id, $form_id
+			" 	DELETE $lead_detail_long_table FROM $lead_detail_long_table
+				JOIN (
+					SELECT ld.id FROM $lead_detail_table ld
+					INNER JOIN $lead_table l ON l.id = ld.lead_id
+					WHERE l.form_id=%d AND ld.form_id=%d {$status_filter}
+				) tmp
+				ON tmp.id = $lead_detail_long_table.lead_detail_id", $form_id, $form_id
 		);
 		$wpdb->query( $sql );
 
@@ -875,15 +876,15 @@ class GFFormsModel {
 		global $wpdb;
 
 		if ( ! GFCommon::current_user_can_any( 'gravityforms_create_form' ) ) {
-			die( __( "You don't have adequate permission to create forms.", 'gravityforms' ) );
+			die( esc_html__( "You don't have adequate permission to create forms.", 'gravityforms' ) );
 		}
 
 		//finding unique title
 		$form  = self::get_form( $form_id );
 		$count = 2;
-		$title = $form->title . ' - Copy 1';
+		$title = $form->title . ' - ' . esc_html__( 'Copy 1', 'gravityforms' );
 		while ( ! self::is_unique_title( $title ) ) {
-			$title = $form->title . " - Copy $count";
+			$title = $form->title . ' - ' . sprintf( esc_html__( 'Copy %d', 'gravityforms' ), $count );
 			$count ++;
 		}
 
@@ -980,9 +981,16 @@ class GFFormsModel {
 			$form = self::get_form_meta( $lead['form_id'] );
 		}
 
-		$fields = GFCommon::get_fields_by_type( $form, array( 'fileupload', 'post_image' ) );
+		// Default field types to delete
+		$field_types = array( 'fileupload', 'post_image' );
+
+		// Allow adding more file types to delete
+		$field_types = apply_filters( 'gform_field_types_delete_files_' . $lead['form_id'], apply_filters( 'gform_field_types_delete_files', $field_types, $form ), $field_types, $form );
+
+		$fields = self::get_fields_by_type( $form, $field_types );
 		if ( is_array( $fields ) ) {
 			foreach ( $fields as $field ) {
+
 				if ( $field->multipleFiles ) {
 					$value_json = self::get_lead_field_value( $lead, $field );
 					if ( ! empty( $value_json ) ) {
@@ -1004,7 +1012,15 @@ class GFFormsModel {
 	public static function delete_files_by_form( $form_id, $status = '' ) {
 		global $wpdb;
 		$form   = self::get_form_meta( $form_id );
-		$fields = GFCommon::get_fields_by_type( $form, array( 'fileupload', 'post_image' ) );
+		
+		// Default field types to delete
+		$field_types = array( 'fileupload', 'post_image' );
+
+		// Allow adding more file types to delete
+		$field_types = apply_filters( 'gform_field_types_delete_files_' . $form_id, apply_filters( 'gform_field_types_delete_files', $field_types, $form ), $field_types, $form );
+
+
+		$fields = self::get_fields_by_type( $form, $field_types );
 		if ( empty( $fields ) ) {
 			return;
 		}
@@ -1157,12 +1173,17 @@ class GFFormsModel {
 
 		//Delete from detail long
 		$sql = $wpdb->prepare(
-			" DELETE FROM $lead_detail_long_table
-                                WHERE lead_detail_id IN(
-                                    SELECT id FROM $lead_detail_table WHERE form_id=%d AND field_number >= %d AND field_number < %d
-                                )", $form_id, $field_id, $field_id + 1
+			"DELETE $lead_detail_long_table FROM $lead_detail_long_table
+				JOIN (
+					SELECT ld.id FROM $lead_detail_table ld
+					WHERE form_id=%d AND field_number >= %d AND field_number < %d
+				) tmp
+				ON tmp.id = $lead_detail_long_table.lead_detail_id",
+			$form_id, $field_id, $field_id + 1
 		);
+
 		$wpdb->query( $sql );
+
 
 		//Delete from lead details
 		$sql = $wpdb->prepare( "DELETE FROM $lead_detail_table WHERE form_id=%d AND field_number >= %d AND field_number < %d", $form_id, $field_id, $field_id + 1 );
@@ -1196,11 +1217,15 @@ class GFFormsModel {
 
 		//Delete from detail long
 		$sql = $wpdb->prepare(
-			" DELETE FROM $lead_detail_long_table
-                                WHERE lead_detail_id IN(
-                                    SELECT id FROM $lead_detail_table WHERE lead_id=%d
-                                )", $lead_id
+			"DELETE $lead_detail_long_table FROM $lead_detail_long_table
+				JOIN (
+					SELECT ld.id FROM $lead_detail_table ld
+					WHERE lead_id=%d
+				) tmp
+				ON tmp.id = $lead_detail_long_table.lead_detail_id",
+			$lead_id
 		);
+
 		$wpdb->query( $sql );
 
 		//Delete from lead details
@@ -1274,14 +1299,14 @@ class GFFormsModel {
 	public static function save_lead( $form, &$lead ) {
 		global $wpdb;
 
-		GFCommon::log_debug( 'GFFormsModel::save_lead(): Saving entry.' );
+		GFCommon::log_debug( __METHOD__ . '(): Saving entry.' );
 
-		$is_form_editor = GFCommon::is_form_editor();
+		$is_form_editor  = GFCommon::is_form_editor();
 		$is_entry_detail = GFCommon::is_entry_detail();
-		$is_admin = $is_form_editor || $is_entry_detail;
+		$is_admin        = $is_form_editor || $is_entry_detail;
 
 		if ( $is_admin && ! GFCommon::current_user_can_any( 'gravityforms_edit_entries' ) ) {
-			die( __( "You don't have adequate permission to edit entries.", 'gravityforms' ) );
+			die( esc_html__( "You don't have adequate permission to edit entries.", 'gravityforms' ) );
 		}
 
 		$lead_detail_table = self::get_lead_details_table_name();
@@ -1305,7 +1330,7 @@ class GFFormsModel {
 			$lead_id = $wpdb->insert_id;
 			$lead    = array( 'id' => $lead_id );
 
-			GFCommon::log_debug( "GFFormsModel::save_lead(): Entry record created in the database. ID: {$lead_id}." );
+			GFCommon::log_debug( __METHOD__ . "(): Entry record created in the database. ID: {$lead_id}." );
 		}
 
 		$current_fields   = $wpdb->get_results( $wpdb->prepare( "SELECT id, field_number FROM $lead_detail_table WHERE lead_id=%d", $lead['id'] ) );
@@ -1315,10 +1340,15 @@ class GFFormsModel {
 		$calculation_fields = array();
 		$recalculate_total  = false;
 
-		GFCommon::log_debug( 'GFFormsModel::save_lead(): Saving entry fields.' );
+		GFCommon::log_debug( __METHOD__ . '(): Saving entry fields.' );
 
 		foreach ( $form['fields'] as $field ) {
 			/* @var $field GF_Field */
+
+			// ignore the honeypot field
+			if ( $field->type == 'honeypot' ) {
+				continue;
+			}
 
 			//Ignore fields that are marked as display only
 			if ( $field->displayOnly && $field->type != 'password' ) {
@@ -1350,14 +1380,11 @@ class GFFormsModel {
 					continue;
 				}
 
-				GFCommon::log_debug( "GFFormsModel::save_lead(): Saving field {$field->label}(#{$field->id} - {$field->type})." );
-
 				if ( $field->type == 'post_category' ) {
 					$field = GFCommon::add_categories_as_choices( $field, '' );
 				}
 
 				$inputs = $field->get_entry_inputs();
-
 				if ( is_array( $inputs ) ) {
 					foreach ( $inputs as $input ) {
 						self::save_input( $form, $field, $lead, $current_fields, $input['id'] );
@@ -1370,11 +1397,7 @@ class GFFormsModel {
 
 		if ( ! empty( $calculation_fields ) ) {
 			foreach ( $calculation_fields as $calculation_field ) {
-
-				GFCommon::log_debug( "GFFormsModel::save_lead(): Saving calculated field {$calculation_field->label}(#{$calculation_field->id} - {$calculation_field->type})." );
-
 				$inputs = $calculation_field->get_entry_inputs();
-
 				if ( is_array( $inputs ) ) {
 					foreach ( $inputs as $input ) {
 						self::save_input( $form, $calculation_field, $lead, $current_fields, $input['id'] );
@@ -1391,11 +1414,11 @@ class GFFormsModel {
 		//saving total field as the last field of the form.
 		if ( ! empty( $total_fields ) ) {
 			foreach ( $total_fields as $total_field ) {
-				GFCommon::log_debug( 'GFFormsModel::save_lead(): Saving total field.' );
 				self::save_input( $form, $total_field, $lead, $current_fields, $total_field->id );
 				self::refresh_lead_field_value( $lead['id'], $total_field['id'] );
 			}
 		}
+		GFCommon::log_debug( __METHOD__ . '(): Finished saving entry fields.' );
 	}
 
 	public static function create_lead( $form ) {
@@ -1881,6 +1904,8 @@ class GFFormsModel {
 		}
 		global $wpdb;
 
+		$table = self::get_incomplete_submissions_table_name();
+
 		$submitted_values = array();
 		foreach ( $form['fields'] as $field ) {
 			/* @var GF_Field $field */
@@ -1895,11 +1920,21 @@ class GFFormsModel {
 		$submission['page_number']     = $page_number;
 		$submission['files']           = $files;
 		$submission['gform_unique_id'] = $form_unique_id;
+
+		// Issue a new token if no longer valid
+		if ( ! empty( $resume_token ) ) {
+			$sql = $wpdb->prepare("SELECT COUNT(*) FROM {$table} WHERE uuid = %s", $resume_token );
+			$count = $wpdb->get_var( $sql );
+			if ( $count != 1 ) {
+				$resume_token = false;
+			}
+		}
+
 		if ( empty( $resume_token ) ) {
 			$resume_token = self::get_uuid();
 
 			$result = $wpdb->insert(
-				self::get_incomplete_submissions_table_name(),
+				$table,
 				array(
 					'uuid'         => $resume_token,
 					'form_id'      => $form['id'],
@@ -1919,7 +1954,7 @@ class GFFormsModel {
 			);
 		} else {
 			$result = $wpdb->update(
-				self::get_incomplete_submissions_table_name(),
+				$table,
 				array(
 					'form_id'      => $form['id'],
 					'date_created' => current_time( 'mysql', true ),
@@ -2081,11 +2116,12 @@ class GFFormsModel {
 	 * @return string
 	 */
 	public static function get_input_type( $field ) {
+		// TODO: Deprecate
 		if ( ! $field instanceof GF_Field ) {
 			return empty( $field['inputType'] ) ? $field['type'] : $field['inputType'];
 		}
 
-		return empty( $field->inputType ) ? $field->type : $field->inputType;
+		return $field->get_input_type();
 	}
 
 	private static function get_post_field_value( $field, $lead ) {
@@ -2602,8 +2638,8 @@ class GFFormsModel {
 			}
 		}
 
-		$has_content_field = sizeof( GFCommon::get_fields_by_type( $form, array( 'post_content' ) ) ) > 0;
-		$has_title_field   = sizeof( GFCommon::get_fields_by_type( $form, array( 'post_title' ) ) ) > 0;
+		$has_content_field = sizeof( self::get_fields_by_type( $form, array( 'post_content' ) ) ) > 0;
+		$has_title_field   = sizeof( self::get_fields_by_type( $form, array( 'post_title' ) ) ) > 0;
 		$post              = false;
 
 		//if a post field was configured with a content or title template, process template
@@ -2681,7 +2717,7 @@ class GFFormsModel {
 	}
 
 	private static function get_custom_field( $form, $meta_name, $meta_index ) {
-		$custom_fields = GFCommon::get_fields_by_type( $form, array( 'post_custom_field' ) );
+		$custom_fields = self::get_fields_by_type( $form, array( 'post_custom_field' ) );
 
 		$index = 0;
 		foreach ( $custom_fields as $field ) {
@@ -2832,12 +2868,13 @@ class GFFormsModel {
 		$value = self::prepare_value( $form, $field, $value, $input_name, rgar( $lead, 'id' ) );
 
         //ignore fields that have not changed
-        if( $lead != null && isset( $lead[ $input_id ] ) && $value === rgget( (string) $input_id, $lead ) ){
+        if ( $lead != null && isset( $lead[ $input_id ] ) && $value === rgget( (string) $input_id, $lead ) ) {
             return;
         }
 
 		$lead_detail_id = self::get_lead_detail_id( $current_fields, $input_id );
-		self::update_lead_field_value( $form, $lead, $field, $lead_detail_id, $input_id, $value );
+		$result         = self::update_lead_field_value( $form, $lead, $field, $lead_detail_id, $input_id, $value );
+		GFCommon::log_debug( __METHOD__ . "(): Saving: {$field->label}(#{$input_id} - {$field->type}). Result: " . var_export( $result, 1 ) );
 
 	}
 
@@ -2904,18 +2941,25 @@ class GFFormsModel {
 				}
 			}
 		} else {
+
+
 			//Deleting long field if there is one
-			$sql    = $wpdb->prepare(
-				"DELETE FROM $lead_detail_long_table
-                                    WHERE lead_detail_id IN(
-                                        SELECT id FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %s AND %s
-                                    )",
+			$sql = $wpdb->prepare(
+				"DELETE $lead_detail_long_table FROM $lead_detail_long_table
+				JOIN (
+					SELECT ld.id FROM $lead_detail_table ld
+					WHERE lead_id=%d AND field_number BETWEEN %s AND %s
+				) tmp
+				ON tmp.id = $lead_detail_long_table.lead_detail_id",
 				$lead_id, doubleval( $input_id ) - 0.0001, doubleval( $input_id ) + 0.0001
 			);
+
 			$result = $wpdb->query( $sql );
-			if ( false === $result ) {
+
+			if ( $result === false ) {
 				return false;
 			}
+
 
 			//Deleting details for this field
 			$sql    = $wpdb->prepare( "DELETE FROM $lead_detail_table WHERE lead_id=%d AND field_number BETWEEN %s AND %s ", $lead_id, doubleval( $input_id ) - 0.0001, doubleval( $input_id ) + 0.0001 );
@@ -3082,6 +3126,7 @@ class GFFormsModel {
 			self::get_meta_table_name(),
 			self::get_form_table_name(),
 			self::get_lead_meta_table_name(),
+			self::get_incomplete_submissions_table_name(),
 		);
 	}
 
@@ -3765,11 +3810,11 @@ class GFFormsModel {
 	 *
 	 * @return string
 	 */
-	public static function get_label( $field, $input_id = 0, $input_only = false ) {
+	public static function get_label( $field, $input_id = 0, $input_only = false, $allow_admin_label = true ) {
 		if ( ! $field instanceof GF_Field ) {
 			$field = GF_Fields::create( $field );
 		}
-		$field_label = ( IS_ADMIN || RG_CURRENT_PAGE == 'select_columns.php' || RG_CURRENT_PAGE == 'print-entry.php' || rgget( 'gf_page', $_GET ) == 'select_columns' || rgget( 'gf_page', $_GET ) == 'print-entry' ) && ! empty( $field->adminLabel ) ? $field->adminLabel : $field->label;
+		$field_label = ( IS_ADMIN || RG_CURRENT_PAGE == 'select_columns.php' || RG_CURRENT_PAGE == 'print-entry.php' || rgget( 'gf_page', $_GET ) == 'select_columns' || rgget( 'gf_page', $_GET ) == 'print-entry' ) && ! empty( $field->adminLabel ) && $allow_admin_label ? $field->adminLabel : $field->label;
 		$input       = self::get_input( $field, $input_id );
 		if ( self::get_input_type($field) == 'checkbox' && $input != null ) {
 			return $input['label'];
@@ -3919,7 +3964,7 @@ class GFFormsModel {
 		// convert confirmation to new confirmations format
 		$confirmation              = rgar( $form, 'confirmation' );
 		$confirmation['id']        = $id;
-		$confirmation['name']      = __( 'Default Confirmation', 'gravityforms' );
+		$confirmation['name']      = esc_html__( 'Default Confirmation', 'gravityforms' );
 		$confirmation['isDefault'] = true;
 
 		$form['confirmations'] = array( $id => $confirmation );
@@ -4663,6 +4708,29 @@ class GFFormsModel {
 		return $charset_collate;
 	}
 
+	public static function is_valid_table( $table_name ){
+		global $wpdb;
+
+		$tables = array(
+			GFFormsModel::get_form_table_name(), GFFormsModel::get_form_view_table_name(), GFFormsModel::get_meta_table_name(),
+			GFFormsModel::get_lead_table_name(), GFFormsModel::get_lead_notes_table_name(), GFFormsModel::get_lead_details_table_name(),
+			GFFormsModel::get_lead_details_long_table_name(), GFFormsModel::get_lead_meta_table_name(), GFFormsModel::get_incomplete_submissions_table_name(),
+			"{$wpdb->prefix}gf_addon_feed", "{$wpdb->prefix}gf_addon_payment_transaction", "{$wpdb->prefix}gf_addon_payment_callback",
+		);
+
+		return in_array( $table_name, $tables );
+	}
+
+	public static function is_valid_index( $index_name ){
+
+		$indexes = array(
+			'id', 'form_id', 'status', 'lead_id', 'lead_user_key', 'lead_field_number', 'lead_detail_id', 'lead_detail_key', 'meta_key',
+			'form_id_meta_key', 'uuid', 'transaction_type', 'type_lead', 'slug_callback_id', 'addon_slug_callback_id', 'addon_form',
+		);
+
+		return in_array( $index_name, $indexes );
+	}
+
 	/**
 	 * Trims values inside choice texts, choice values, input labels, field labels and field conditionalLogic
 	 *
@@ -4815,7 +4883,7 @@ class GFFormsModel {
 	}
 
 	public static function delete_password( $entry, $form ) {
-		$password_fields = GFCommon::get_fields_by_type( $form, array( 'password' ) );
+		$password_fields = self::get_fields_by_type( $form, array( 'password' ) );
 		if ( is_array( $password_fields ) ) {
 			foreach ( $password_fields as $password_field ) {
 				$entry[ $password_field->id ] = '';
@@ -4824,6 +4892,180 @@ class GFFormsModel {
 		GFAPI::update_entry( $entry );
 
 		return $entry;
+	}
+
+	public static function maybe_sanitize_form_settings( $form ) {
+		if (  isset( $form['version'] ) && version_compare( $form['version'], '1.9.6.10', '>=' ) ) {
+			$form = self::sanitize_settings( $form );
+		}
+		return $form;
+	}
+
+	public static function sanitize_settings( $form ) {
+
+		$form['version'] = GFForms::$version;
+
+		if ( apply_filters( 'gform_disable_form_settings_sanitization', false ) ) {
+			return $form;
+		}
+
+		// -- standard form settings --
+
+		$allowed_tags = wp_kses_allowed_html( 'post' );
+
+		$form['title'] = sanitize_text_field( rgar( $form, 'title' ) );
+		if ( isset ( $form['description'] ) ) {
+			$form['description'] = wp_kses( $form['description'], $allowed_tags );
+		}
+
+		if ( isset ( $form['labelPlacement'] ) ) {
+			$form['labelPlacement'] = GFCommon::whitelist( $form['labelPlacement'], array( 'top_label', 'left_label', 'right_label' ) );
+		}
+		if ( isset ( $form['descriptionPlacement'] ) ) {
+			$form['descriptionPlacement'] = GFCommon::whitelist( $form['descriptionPlacement'], array( 'below', 'above' ) );
+		}
+
+		if ( isset ( $form['subLabelPlacement'] ) ) {
+			$form['subLabelPlacement']    = GFCommon::whitelist( $form['subLabelPlacement'], array( 'below', 'above' ) );
+		}
+
+		// -- advanced form settings --
+
+		if ( isset ( $form['cssClass'] ) ) {
+			$form['cssClass'] = sanitize_text_field( $form['cssClass'] );
+		}
+
+		if ( isset ( $form['enableHoneypot'] ) ) {
+			$form['enableHoneypot']  = (bool) $form['enableHoneypot'];
+		}
+
+		if ( isset ( $form['enableAnimation'] ) ) {
+			$form['enableAnimation'] = (bool) $form['enableAnimation'];
+		}
+
+		// form button settings
+		if ( isset ( $form['button'] ) ) {
+			$form['button']['type']     = GFCommon::whitelist( $form['button']['type'], array( 'text', 'image' ) );
+			$form['button']['text']     = $form['button']['type'] == 'text' ? sanitize_text_field( $form['button']['text'] ) : '';
+			$form['button']['imageUrl'] = $form['button']['type'] == 'image' ? sanitize_text_field( $form['button']['imageUrl'] ) : '';
+		}
+		if ( isset( $form['button']['conditionalLogic'] ) ) {
+			$form['button']['conditionalLogic'] = self::sanitize_conditional_logic( $form['button']['conditionalLogic'] );
+		}
+
+		// Save and Continue settings
+		if ( isset ( $form['save'] ) ) {
+			$form['save']['enabled']        = (bool) $form['save']['enabled'] ;
+			$form['save']['button']['type'] = 'link';
+			$form['save']['button']['text'] = sanitize_text_field( $form['save']['button']['text'] );
+		}
+
+
+		// limit entries settings
+		if ( isset ( $form['limitEntries'] ) ) {
+			$form['limitEntries']        = (bool) $form['limitEntries'];
+			$form['limitEntriesCount']   = $form['limitEntries'] ? absint( $form['limitEntriesCount'] ) : '';
+			$form['limitEntriesPeriod']  = $form['limitEntries'] ? GFCommon::whitelist( $form['limitEntriesPeriod'], array( '', 'day', 'week', 'month', 'year' ) ) : '';
+			$form['limitEntriesMessage'] = $form['limitEntries'] ? wp_kses( $form['limitEntriesMessage'], $allowed_tags ) : '';
+		}
+
+		// form scheduling settings
+		if ( isset ( $form['scheduleForm'] ) ) {
+			$form['scheduleForm']           = (bool) $form['scheduleForm'];
+			$form['scheduleStart']          = $form['scheduleForm'] ? preg_replace( '([^0-9/])', '', $form['scheduleStart'] ) : '';
+			$form['scheduleStartHour']      = $form['scheduleForm'] ? GFCommon::int_range( $form['scheduleStartHour'], 1, 12 ) : '';
+			$form['scheduleStartMinute']    = $form['scheduleForm'] ? GFCommon::int_range( $form['scheduleStartMinute'], 1, 60 ) : '';
+			$form['scheduleStartAmpm']      = $form['scheduleForm'] ? GFCommon::whitelist( $form['scheduleStartAmpm'], array( 'am', 'pm' ) ) : '';
+			$form['scheduleEnd']            = $form['scheduleForm'] ? preg_replace( '([^0-9/])', '', $form['scheduleEnd'] ) : '';
+			$form['scheduleEndHour']        = $form['scheduleForm'] ? GFCommon::int_range( $form['scheduleEndHour'], 1, 12 ) : '';
+			$form['scheduleEndMinute']      = $form['scheduleForm'] ? GFCommon::int_range( $form['scheduleEndMinute'], 1, 60 ) : '';
+			$form['scheduleEndAmpm']        = $form['scheduleForm'] ? GFCommon::whitelist( $form['scheduleEndAmpm'], array( 'am', 'pm' ) ) : '';
+			$form['schedulePendingMessage'] = $form['scheduleForm'] ? wp_kses( $form['schedulePendingMessage'], $allowed_tags ) : '';
+			$form['scheduleMessage']        = $form['scheduleForm'] ? wp_kses( $form['scheduleMessage'], $allowed_tags ) : '';
+
+		}
+
+		// require login settings
+		if ( isset ( $form['requireLogin'] ) ) {
+			$form['requireLogin']        = (bool) $form['requireLogin'];
+			$form['requireLoginMessage'] = $form['requireLogin'] ? wp_kses( $form['requireLoginMessage'], $allowed_tags ) : '';
+		}
+
+
+		if ( isset ( $form['fields'] ) ) {
+			foreach ( $form['fields'] as $field ) {
+				/* @var GF_Field $field */
+				$field->sanitize_settings();
+			}
+		}
+
+		return $form;
+	}
+
+	public static function sanitize_conditional_logic( $logic ) {
+		if ( ! is_array( $logic ) ) {
+			return $logic;
+		}
+
+		if ( apply_filters( 'gform_disable_form_settings_sanitization', false ) ) {
+			return $logic;
+		}
+
+		if ( isset( $logic['actionType'] ) && ! in_array( $logic['actionType'], array( 'show', 'hide' ) ) ) {
+			$logic['actionType'] = 'show';
+		}
+		if (  isset( $logic['logicType'] ) && ! in_array( $logic['logicType'], array( 'all', 'any' ) ) ) {
+			$logic['logicType'] = 'all';
+		}
+
+		if ( is_array( $logic['rules'] ) ) {
+			foreach ( $logic['rules'] as &$rule ) {
+				if ( isset( $rule['fieldId'] ) ) {
+					// Field ID could be meta key
+					$rule['fieldId'] = wp_strip_all_tags( $rule['fieldId'] );
+				}
+				if ( isset( $rule['operator'] ) ) {
+					$is_valid_operator = in_array( $rule['operator'], array('is', 'isnot', '>', '<', 'contains', 'starts_with', 'ends_with') );
+					$rule['operator'] = $is_valid_operator ? $rule['operator'] : 'is';
+				}
+
+				if ( isset( $rule['value'] ) ) {
+					$rule['value'] = wp_strip_all_tags( $rule['value'] );
+				}
+			}
+		}
+		return $logic;
+	}
+
+	/**
+	 * Returns an array containing the form fields of the specified type or types.
+	 *
+	 * @since 1.9.9.10
+	 * @param array $form
+	 * @param array|string $types
+	 * @param bool $use_input_type
+	 *
+	 * @return GF_Field[]
+	 */
+	public static function get_fields_by_type( $form, $types, $use_input_type = false ) {
+		$fields = array();
+		if ( ! is_array( rgar( $form, 'fields' ) ) ) {
+			return $fields;
+		}
+
+		if ( ! is_array( $types ) ) {
+			$types = array( $types );
+		}
+
+		foreach ( $form['fields'] as $field ) {
+			/* @var GF_Field $field */
+			$type = $use_input_type ? $field->get_input_type() : $field->type;
+			if ( in_array( $type, $types ) ) {
+				$fields[] = $field;
+			}
+		}
+
+		return $fields;
 	}
 }
 

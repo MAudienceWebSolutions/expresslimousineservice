@@ -1303,7 +1303,7 @@ class Soliloquy_Shortcode {
                     'quality'  => 100,
                     'retina'   => false
                 );
-                $args = apply_filters( 'soliloquy_crop_image_args', $args );
+                $args = apply_filters( 'soliloquy_crop_image_args', $args, $id, $item, $data, $type );
                 $cropped_image = $common->resize_image( $image, $args['width'], $args['height'], true, $args['position'], $args['quality'], $args['retina'], $data );
 
                 // If there is an error, possibly output error message and return the default image src.
@@ -1331,7 +1331,7 @@ class Soliloquy_Shortcode {
                     'quality'  => 100,
                     'retina'   => false
                 );
-                $args = apply_filters( 'soliloquy_crop_image_args', $args);
+                $args = apply_filters( 'soliloquy_crop_image_args', $args, $id, $item, $data, $type );
                 $cropped_image = $common->resize_image( $image, $args['width'], $args['height'], true, $args['position'], $args['quality'], $args['retina'], $data );
 
                 // If there is an error, possibly output error message and return the default image src.
@@ -1359,7 +1359,7 @@ class Soliloquy_Shortcode {
                     'quality'  => 100,
                     'retina'   => false
                 );
-                $args = apply_filters( 'soliloquy_crop_image_args', $args );
+                $args = apply_filters( 'soliloquy_crop_image_args', $args, $id, $item, $data, $type );
                 $cropped_image = $common->resize_image( $image, $args['width'], $args['height'], true, $args['position'], $args['quality'], $args['retina'], $data );
 
                 // If there is an error, possibly output error message and return the default image src.

@@ -254,6 +254,30 @@ class Soliloquy_Common_Admin {
     }
 
     /**
+     * Returns an array of positions for new slides to be added to in an existing Slider
+     *
+     * @since 2.4.1.7
+     *
+     * @return array 
+     */
+    public function get_slide_positions() {
+
+        $positions = array(
+            array(
+                'value' => 'before',
+                'name'  => __( 'Before Existing Slides', 'soliloquy' )
+            ),
+            array(
+                'value' => 'after',
+                'name'  => __( 'After Existing Slides', 'soliloquy' )
+            ),
+        );
+
+        return apply_filters( 'soliloquy_slide_positions', $positions );
+        
+    }
+
+    /**
      * Returns the singleton instance of the class.
      *
      * @since 1.0.0
