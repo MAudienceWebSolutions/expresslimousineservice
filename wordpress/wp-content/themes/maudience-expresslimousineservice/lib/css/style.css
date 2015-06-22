@@ -85,6 +85,9 @@ body footer[role="contentinfo"] a:active {
 .post-type-archive-vehicles .reserve-now-wrap {
   display: block;
 }
+.entry-meta {
+  display: none;
+}
 /* SHELL STYLES
 *****************************************************************/
 /*  ******************************** HEADER ********************************  */
