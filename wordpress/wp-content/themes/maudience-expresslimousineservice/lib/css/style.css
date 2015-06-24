@@ -788,8 +788,11 @@ footer .footer-widget-right .textwidget {
   .page-template-front-page .top-section .column-right {
     width: 30%;
   }
+  .page-template-front-page .bottom-section .home-bottom-left {
+    padding-bottom: 0;
+  }
   .page-template-front-page .bottom-section h2.rounded {
-    width: auto;
+    width: 115px;
   }
   .page-template-front-page .testimonials-information-output .custom-post-type-list {
     display: block;
