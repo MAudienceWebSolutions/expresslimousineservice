@@ -88,6 +88,12 @@ body footer[role="contentinfo"] a:active {
 .entry-meta {
   display: none;
 }
+select,
+select option {
+  background-color: white;
+  border-radius: 0;
+  border: 1px inset grey;
+}
 /* SHELL STYLES
 *****************************************************************/
 /*  ******************************** HEADER ********************************  */
