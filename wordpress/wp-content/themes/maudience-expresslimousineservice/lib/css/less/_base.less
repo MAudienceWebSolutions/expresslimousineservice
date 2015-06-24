@@ -86,8 +86,38 @@
         select,
         select option {
             background-color: white;
+            -moz-border-radius: 0;
+            -webkit-border-radius: 0;
             border-radius: 0;
-            border: 1px inset grey;
+            border: 0;
+            color: black;
+        }
+
+        #field_1_1,
+        #field_1_10,
+        #field_1_39 {
+            .ginput_container {
+                background-color: white;
+                max-width: 98%;
+                padding: 5px 0;
+            }
+
+            input {
+                border: none;
+                color: black;
+            }
+        }
+
+        #field_1_10 .ginput_container input {
+            appearance: menulist;
+            -webkit-appearance: menulist;
+            -moz-appearance: menulist;
+            background-color: white;
+            -moz-border-radius: 0;
+            -webkit-border-radius: 0;
+            border-radius: 0;
+            border: 0;
+            color: black;
         }
 
 /* SHELL STYLES
