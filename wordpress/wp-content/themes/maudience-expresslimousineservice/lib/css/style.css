@@ -590,8 +590,7 @@ footer .footer-widget-right .textwidget {
   /* PAGE SPECIFIC STYLES
 *****************************************************************/
   .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services {
-    min-height: 150px;
-    padding-right: 50px;
+    min-height: 200px;
   }
   .page-template-front-page .bottom-section h2.rounded {
     display: block;
@@ -776,8 +775,8 @@ footer .footer-widget-right .textwidget {
   .page-template-front-page .middle-section {
     background-color: #E5E5E5;
   }
-  .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services {
-    max-width: 30%;
+  .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services .entry-page-image {
+    margin-bottom: 160px;
   }
   .page-template-front-page .section-column {
     width: 50%;
