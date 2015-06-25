@@ -352,6 +352,15 @@ footer .footer-widget-right .textwidget {
   text-transform: capitalize;
   text-align: center;
 }
+/*  ******************************** SOLILOQUY ********************************  */
+#home-top-left .soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link.active {
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: none;
+}
+#home-top-left .soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link.active {
+  background-color: black;
+  background-image: none;
+}
 /* PAGE SPECIFIC STYLES
 *****************************************************************/
 /* HOME PAGE */
