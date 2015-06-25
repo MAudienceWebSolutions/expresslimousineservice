@@ -112,9 +112,9 @@ select option {
   color: black;
 }
 #field_1_10 .ginput_container input {
-  appearance: menulist;
-  -webkit-appearance: menulist;
-  -moz-appearance: menulist;
+  appearance: listbox;
+  -webkit-appearance: listbox;
+  -moz-appearance: listbox;
   background-color: white;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
