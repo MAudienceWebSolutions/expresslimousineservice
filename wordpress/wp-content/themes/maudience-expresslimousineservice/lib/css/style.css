@@ -353,13 +353,19 @@ footer .footer-widget-right .textwidget {
   text-align: center;
 }
 /*  ******************************** SOLILOQUY ********************************  */
-#home-top-left .soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link.active {
-  background-color: rgba(0, 0, 0, 0.5);
+#home-top-left .soliloquy-container.soliloquy-theme-karisma .soliloquy-has-controls-direction .soliloquy-pager {
+  right: 27%;
+}
+#home-top-left .soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link {
+  width: 100px;
+  height: 15px;
+  border-bottom: 5px solid black;
+  background-color: transparent;
   background-image: none;
+  margin: 0 5px;
 }
 #home-top-left .soliloquy-container.soliloquy-theme-karisma .soliloquy-pager-link.active {
-  background-color: black;
-  background-image: none;
+  border-bottom-color: rgba(0, 0, 0, 0.5);
 }
 /* PAGE SPECIFIC STYLES
 *****************************************************************/
@@ -819,6 +825,11 @@ footer .footer-widget-right .textwidget {
   }
   .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services .entry-page-image {
     margin-bottom: 160px;
+  }
+  @-moz-document url-prefix() {
+    .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services {
+      max-width: 34%;
+    }
   }
   .page-template-front-page .section-column {
     width: 50%;
