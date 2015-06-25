@@ -873,6 +873,7 @@ footer .footer-widget-right .textwidget {
     display: block;
     max-width: 300px;
     position: relative;
+    background: url('dummy/doesnotexist.png') no-repeat;
   }
   .page-template-front-page .section-column {
     width: 50%;
