@@ -865,7 +865,6 @@ footer .footer-widget-right .textwidget {
   }
   .page-template-front-page .middle-section .home-middle.widget-area {
     display: block;
-    max-width: 960px;
     margin: auto;
     width: 100%;
   }
