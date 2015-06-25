@@ -863,6 +863,15 @@ footer .footer-widget-right .textwidget {
   .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services:not(*:root) {
     max-width: none;
   }
+  .page-template-front-page .middle-section .home-middle.widget-area {
+    display: block;
+    max-width: 960px;
+    margin: auto;
+  }
+  .page-template-front-page .middle-section .home-middle.widget-area ul li a {
+    display: block;
+    max-width: 300px;
+  }
   .page-template-front-page .section-column {
     width: 50%;
   }
