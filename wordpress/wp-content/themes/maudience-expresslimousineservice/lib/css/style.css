@@ -857,10 +857,11 @@ footer .footer-widget-right .textwidget {
   .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services .entry-page-image {
     margin-bottom: 160px;
   }
-  @-moz-document url-prefix() {
-    .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services {
-      max-width: 34%;
-    }
+  .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services {
+    max-width: 34%;
+  }
+  .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services:not(*:root) {
+    max-width: none;
   }
   .page-template-front-page .section-column {
     width: 50%;
