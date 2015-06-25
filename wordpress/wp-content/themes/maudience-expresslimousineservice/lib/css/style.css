@@ -858,7 +858,7 @@ footer .footer-widget-right .textwidget {
     margin-bottom: 160px;
   }
   .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services {
-    max-width: 34%;
+    width: 34%;
   }
   .page-template-front-page .middle-section .custom-post-type-list .custom-post-type-list-item.services:not(*:root) {
     max-width: none;
