@@ -19,6 +19,7 @@
 .els-button:active {
   background-color: grey;
 }
+/* RIGHT POINTING TRANGLE */
 /* BASE */
 /*  BASE 
 
@@ -351,6 +352,32 @@ footer .footer-widget-right .textwidget {
 #field_1_66 h2 {
   text-transform: capitalize;
   text-align: center;
+}
+#gform_submit_button_1 {
+  background-color: black;
+  border: 2.5px solid white;
+  border-radius: 0;
+  color: white;
+  text-transform: uppercase;
+  padding: 7.5px 25px;
+  font-size: 1rem;
+  font-weight: 100;
+}
+#gform_submit_button_1:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid white;
+  margin-left: 10px;
+}
+#gform_submit_button_1:hover {
+  color: black;
+}
+#gform_submit_button_1:hover:after {
+  border-left-color: black;
 }
 /*  ******************************** SOLILOQUY ********************************  */
 #home-top-left .soliloquy-container.soliloquy-theme-karisma .soliloquy-has-controls-direction .soliloquy-pager {
