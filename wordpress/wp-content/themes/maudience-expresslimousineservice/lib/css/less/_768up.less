@@ -156,12 +156,16 @@
                     max-width: 960px;
                     margin: auto;
                     width: 100%;
-
-                    ul li a {
-                        display: block;
-                        max-width: 300px;
-                        position: relative; // IE FIX
-                        background: #E5E5E5 url('dummy/doesnotexist.png') no-repeat; // IE FIX
+                    position: relative;
+                    
+                    ul li {
+                        position: relative;
+                        a {
+                            display: block;
+                            max-width: 300px;
+                            position: relative; // IE FIX
+                            background: #E5E5E5 url('dummy/doesnotexist.png') no-repeat; // IE FIX
+                        }
                     }
                 }
 

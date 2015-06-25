@@ -868,6 +868,10 @@ footer .footer-widget-right .textwidget {
     max-width: 960px;
     margin: auto;
     width: 100%;
+    position: relative;
+  }
+  .page-template-front-page .middle-section .home-middle.widget-area ul li {
+    position: relative;
   }
   .page-template-front-page .middle-section .home-middle.widget-area ul li a {
     display: block;
