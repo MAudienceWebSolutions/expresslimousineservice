@@ -272,6 +272,9 @@ select option {
 .template-front-page .widget-area {
   border: none;
 }
+footer .inner-footer-wrap {
+  padding-top: 35px;
+}
 footer .widget-area {
   float: none;
 }
@@ -280,6 +283,7 @@ footer h2 {
   text-transform: uppercase;
   letter-spacing: 1.75px;
   font-weight: 400;
+  margin-bottom: 10px;
 }
 footer a {
   text-decoration: none;
@@ -648,7 +652,7 @@ footer .footer-widget-right .textwidget {
     margin-bottom: 20px;
   }
   .inner-footer-wrap .menu-social-media-navigation-container .menu {
-    margin: 50px 0;
+    margin: 0 0 50px;
   }
   /* PLUGIN STYLES
 *****************************************************************/
